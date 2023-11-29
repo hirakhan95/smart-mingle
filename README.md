@@ -1,1 +1,1 @@
-# smart-mingle
+# Smart Mingle
