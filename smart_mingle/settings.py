@@ -3,7 +3,6 @@ import os
 if os.path.isfile("env.py"):
     import env
 
-
 # print(os.getenv("envpy_test"))
 
 """
@@ -63,7 +62,7 @@ ROOT_URLCONF = 'smart_mingle.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates', 'smart_mingle_app')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,6 +87,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
