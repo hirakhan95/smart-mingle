@@ -1,1 +1,1 @@
-web: gunicorn smart_mingle_app.wsgi
+web: gunicorn smart_mingle.wsgi
