@@ -1,9 +1,8 @@
 import os
 
+
 if os.path.isfile("env.py"):
     import env
-
-# print(os.getenv("envpy_test"))
 
 """
 Django settings for smart_mingle project.
