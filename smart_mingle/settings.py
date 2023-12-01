@@ -32,7 +32,7 @@ SECRET_KEY = os.getenv("project_secret")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['smart-mingle.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://smart-mingle-00648c22d190.herokuapp.com/']
 
 
 # Application definition
