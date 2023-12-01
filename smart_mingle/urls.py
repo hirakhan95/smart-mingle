@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from smart_mingle_app.views import get_main_page
+from smart_mingle_app.views import home
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', get_main_page, name='main_page')
-
+    path('', home, name='home')
 ]
+
