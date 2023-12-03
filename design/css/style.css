@@ -1,0 +1,77 @@
+*{
+    font-family: 'Shadows Into Light', sans-serif;
+    font-size: medium;
+    padding: 0;
+    margin: 0;
+    outline: none;
+
+}
+
+body {
+    font-family: 'Shadows Into Light';
+    color: black;
+}
+
+p {
+    font-size: large;
+}
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: right;
+    margin-right: 20px;
+}
+
+.event-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+
+
+/* Footer section start */
+
+footer {
+    padding-bottom: 25px;
+    background-color: whitesmoke;
+    color: black;
+}
+
+footer hr {
+    opacity: 80%;
+    width: 90%;
+    margin-bottom: 40px;
+}
+
+
+footer .ion-icon-social {
+    text-align:center;
+}
+
+footer .ion-icon-social > a {
+    font-size:24px;
+    opacity:0.8;
+    width:40px;
+    margin:0 8px;
+    display:inline-block;
+    border-radius:50%;
+    border:black;
+}
+
+footer .ion-icon-social a i {
+    color: black;
+}
+
+
+footer .copyright-text {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color: var(--dark-color);
+    margin-bottom:0;
+}
+
+/* Footer section end */
