@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Smart Mingle Events</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Shadows Into Light"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Navigation bar starts-->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a href="home.html" class="navbar-brand">Smart Mingle シ</a>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search events"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Log In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Navigation bar end -->
+    </header>
+
+    <main>
+      <!--  Incoming events div -->
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="mb-3">
+            <h2>Incoming Events</h2>
+          </div>
+          <div
+            id="carouselIncomingEvents"
+            class="carousel carousel-dark slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div
+                  class="card-wrapper container-sm d-flex justify-content-around"
+                >
+                  <div class="card h-100">
+                    <img
+                      src="images/event2.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 1</h5>
+                      <span class="tag badge favourite-icon bg-light"
+                        ><i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new card-badge">New</span>
+                      <span class="tag badge bg-type card-badge">Sports</span>
+                      <span class="tag badge bg-danger card-badge">Berlin</span>
+                    </div>
+                  </div>
+
+                  <div class="card h-100">
+                    <img
+                      src="images/event6.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 2</h5>
+                      <span class="tag badge favourite-icon bg-light"
+                        ><i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new">New</span>
+                      <span class="tag badge bg-type">Sports</span>
+                      <span class="tag badge bg-danger">Berlin</span>
+                    </div>
+                  </div>
+                  <div class="card h-100">
+                    <img
+                      src="images/event7.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 3</h5>
+                      <span class="tag badge favourite-icon bg-light"
+                        ><i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new">New</span>
+                      <span class="tag badge bg-type">Sports</span>
+                      <span class="tag badge bg-danger">Berlin</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div
+                  class="card-wrapper container-sm d-flex justify-content-around"
+                >
+                  <div class="card h-100">
+                    <img
+                      src="images/event1.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 4</h5>
+                      <span class="tag badge favourite-icon bg-light">
+                        <i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new card-badge">New</span>
+                      <span class="tag badge bg-type card-badge">Sports</span>
+                      <span class="tag badge bg-danger card-badge">Berlin</span>
+                    </div>
+                  </div>
+
+                  <div class="card h-100">
+                    <img
+                      src="images/event6.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 5</h5>
+                      <span class="tag badge favourite-icon bg-light"
+                        ><i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new">New</span>
+                      <span class="tag badge bg-type">Sports</span>
+                      <span class="tag badge bg-danger">Berlin</span>
+                    </div>
+                  </div>
+                  <div class="card h-100">
+                    <img
+                      src="images/event3.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 6</h5>
+                      <span class="tag badge favourite-icon bg-light"
+                        ><i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new">New</span>
+                      <span class="tag badge bg-type">Sports</span>
+                      <span class="tag badge bg-danger">Berlin</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div
+                  class="card-wrapper container-sm d-flex justify-content-around"
+                >
+                  <div class="card h-100">
+                    <img
+                      src="images/event4.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 7</h5>
+                      <span class="tag badge favourite-icon bg-light"
+                        ><i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new">New</span>
+                      <span class="tag badge bg-type">Sports</span>
+                      <span class="tag badge bg-danger">Berlin</span>
+                    </div>
+                  </div>
+
+                  <div class="card h-100">
+                    <img
+                      src="images/event7.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 8</h5>
+                      <span class="tag badge favourite-icon bg-light"
+                        ><i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new">New</span>
+                      <span class="tag badge bg-type">Sports</span>
+                      <span class="tag badge bg-danger">Berlin</span>
+                    </div>
+                  </div>
+                  <div class="card h-100">
+                    <img
+                      src="images/event5.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 9</h5>
+                      <span class="tag badge favourite-icon bg-light"
+                        ><i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new">New</span>
+                      <span class="tag badge bg-type">Sports</span>
+                      <span class="tag badge bg-danger">Berlin</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselIncomingEvents"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselIncomingEvents"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+          <!--  Past events div -->
+          <div class="mb-3">
+            <h2>Past Events</h2>
+          </div>
+          <div
+            id="carouselPastEvents"
+            class="carousel carousel-dark slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div
+                  class="card-wrapper container-sm d-flex justify-content-around"
+                >
+                  <div class="card h-100">
+                    <img
+                      src="images/event2.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 1</h5>
+                      <span class="tag badge favourite-icon bg-light"
+                        ><i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new card-badge">New</span>
+                      <span class="tag badge bg-type card-badge">Sports</span>
+                      <span class="tag badge bg-danger card-badge">Berlin</span>
+                    </div>
+                  </div>
+
+                  <div class="card h-100">
+                    <img
+                      src="images/event6.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 2</h5>
+                      <span class="tag badge favourite-icon bg-light"
+                        ><i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new">New</span>
+                      <span class="tag badge bg-type">Sports</span>
+                      <span class="tag badge bg-danger">Berlin</span>
+                    </div>
+                  </div>
+                  <div class="card h-100">
+                    <img
+                      src="images/event7.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 3</h5>
+                      <span class="tag badge favourite-icon bg-light"
+                        ><i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new">New</span>
+                      <span class="tag badge bg-type">Sports</span>
+                      <span class="tag badge bg-danger">Berlin</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div
+                  class="card-wrapper container-sm d-flex justify-content-around"
+                >
+                  <div class="card h-100">
+                    <img
+                      src="images/event1.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 4</h5>
+                      <span class="tag badge favourite-icon bg-light">
+                        <i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new card-badge">New</span>
+                      <span class="tag badge bg-type card-badge">Sports</span>
+                      <span class="tag badge bg-danger card-badge">Berlin</span>
+                    </div>
+                  </div>
+
+                  <div class="card h-100">
+                    <img
+                      src="images/event6.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 5</h5>
+                      <span class="tag badge favourite-icon bg-light"
+                        ><i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new">New</span>
+                      <span class="tag badge bg-type">Sports</span>
+                      <span class="tag badge bg-danger">Berlin</span>
+                    </div>
+                  </div>
+                  <div class="card h-100">
+                    <img
+                      src="images/event3.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 6</h5>
+                      <span class="tag badge favourite-icon bg-light"
+                        ><i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new">New</span>
+                      <span class="tag badge bg-type">Sports</span>
+                      <span class="tag badge bg-danger">Berlin</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div
+                  class="card-wrapper container-sm d-flex justify-content-around"
+                >
+                  <div class="card h-100">
+                    <img
+                      src="images/event4.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 7</h5>
+                      <span class="tag badge favourite-icon bg-light"
+                        ><i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new">New</span>
+                      <span class="tag badge bg-type">Sports</span>
+                      <span class="tag badge bg-danger">Berlin</span>
+                    </div>
+                  </div>
+
+                  <div class="card h-100">
+                    <img
+                      src="images/event7.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 8</h5>
+                      <span class="tag badge favourite-icon bg-light"
+                        ><i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new">New</span>
+                      <span class="tag badge bg-type">Sports</span>
+                      <span class="tag badge bg-danger">Berlin</span>
+                    </div>
+                  </div>
+                  <div class="card h-100">
+                    <img
+                      src="images/event5.jpeg"
+                      class="card-img-top card-event-image"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title card-strong">Event Title 9</h5>
+                      <span class="tag badge favourite-icon bg-light"
+                        ><i class="icon ion-heart"></i
+                      ></span>
+                      <span class="tag badge bg-new">New</span>
+                      <span class="tag badge bg-type">Sports</span>
+                      <span class="tag badge bg-danger">Berlin</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselPastEvents"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselPastEvents"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+     <!-- Create Event Section -->
+     <div class="container">
+      <div class="row justify-content-center">
+          <!-- Centered Text -->
+          <div class="col-md-8 text-center">
+              <h2>Want to Create an Event?</h2>
+              <p>
+                Transform your vision into a vivid reality with Smart Mingle. Let's make your next event not just an occasion, but a sensation!
+              </p>
+              <button type="button" class="btn btn-primary btn-lg" href="">Sign Up Now</button>
+          </div>
+      </div>
+  </div>
+    </main>
+    
+    <!-- Footer Section Start -->
+    <footer>
+      <hr />
+      <div class="ion-icon-social">
+        <a href="http://instagram.com"
+          ><i class="icon ion-social-instagram"></i
+        ></a>
+        <a href="http://snapchat.com"
+          ><i class="icon ion-social-snapchat"></i
+        ></a>
+        <a href="http://twitter.com"><i class="icon ion-social-twitter"></i></a>
+        <a href="http://facebook.com"
+          ><i class="icon ion-social-facebook"></i
+        ></a>
+      </div>
+      <p class="copyright-text">
+        &copy; 2023 Smart Mingle. All rights reserved.
+      </p>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Javascript script-->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <!-- Include Bootstrap and Tempus Dominus JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
