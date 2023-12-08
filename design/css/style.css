@@ -89,6 +89,11 @@ nav ul li {
   border-right: 1px solid #ddd;
 }
 
+#uploaded-image {
+  width: 400px;
+  height: 250px;
+}
+
 /* User profile CSS starts */
 
 .emp-profile {
