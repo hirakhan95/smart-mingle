@@ -90,8 +90,7 @@ nav ul li {
 }
 
 #uploaded-image {
-  width: 400px;
-  height: 250px;
+  width: 100%;
 }
 
 /* User profile CSS starts */
