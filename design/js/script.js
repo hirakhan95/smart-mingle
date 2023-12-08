@@ -19,3 +19,17 @@ document.addEventListener("DOMContentLoaded", function () {
   dateInput.setAttribute("min", today);
   dateInput.value = today;
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  var currentTime = new Date().toLocaleTimeString("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+  document.getElementById("time").value = currentTime;
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  var today = new Date().toISOString().split("T")[0];
+  document.getElementById("date").setAttribute("min", today);
+});
