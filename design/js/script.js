@@ -1,4 +1,4 @@
-//
+// Tiny Initialization
 tinymce.init({
   menubar: false,
   selector: "textarea",
@@ -13,6 +13,7 @@ tinymce.init({
   branding: false,
 });
 
+// Dom management for Date time picker
 document.addEventListener("DOMContentLoaded", function () {
   var today = new Date().toISOString().split("T")[0];
   var dateInput = document.getElementById("date");
@@ -33,3 +34,18 @@ document.addEventListener("DOMContentLoaded", function () {
   var today = new Date().toISOString().split("T")[0];
   document.getElementById("date").setAttribute("min", today);
 });
+
+// Display image when uploading
+$(function () {
+  $(":file").change(function () {
+    if (this.files && this.files[0]) {
+      var reader = new FileReader();
+      reader.onload = imageIsLoaded;
+      reader.readAsDataURL(this.files[0]);
+    }
+  });
+});
+
+function imageIsLoaded(e) {
+  $("#uploaded-image").attr("src", e.target.result);
+}
