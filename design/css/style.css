@@ -99,6 +99,11 @@ nav ul li {
 .navbar {
   background-color: white;
   padding: 1%;
+  width: 100%;
+}
+
+.navbar .row {
+  width: 100%;
 }
 
 /* Navbar styling ends */
