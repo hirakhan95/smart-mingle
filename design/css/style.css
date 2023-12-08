@@ -40,6 +40,17 @@ nav ul li {
   opacity: 70%;
 } */
 
+#description + .tox.tox-tinymce {
+  display: inline-flex;
+  align-items: center;
+  background-color: #fff;
+
+  width: 100%;
+  background-size: 16px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
 .datetimepicker {
   display: inline-flex;
   align-items: center;
