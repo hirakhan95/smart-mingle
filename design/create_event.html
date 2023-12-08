@@ -34,8 +34,8 @@
     <main>
       <div class="container">
         <div class="row">
-          <div class="col-md-6"></div>
-          <div class="col-md-6">
+          <div class="col-sm-12 col-lg-6"></div>
+          <div class="col-sm-12 col-lg-6">
             <h2>Create Event</h2>
             <p>
               "Smart Mingle: Where Events Spark and Connections Flourish – Your
@@ -46,14 +46,14 @@
       </div>
       <div class="container">
         <div class="row position-relative">
-          <div class="col-md-6">
+          <div class="col-sm-12 col-lg-6">
             <img
               src="images/create-event.jpeg"
               alt="hero-image"
               class="img-fluid"
             />
           </div>
-          <div class="col-md-6">
+          <div class="col-sm-12 col-lg-6">
             <form>
               <div class="mb-3">
                 <label for="eventtitle" class="form-label">Event Title</label>
@@ -62,12 +62,16 @@
 
               <div class="mb-3">
                 <label for="image" class="form-label">Image</label>
-                <input type="file" id="image" />
+
+                <br />
                 <img
-                  id="myImg"
-                  src="https://placehold.co/600x400"
+                  id="uploaded-image"
+                  src="https://placehold.co/400x250/C8C8C8/white?text=Upload+An+Image"
                   alt="your image"
                 />
+                <br />
+                <br />
+                <input type="file" id="image" />
               </div>
 
               <div class="mb-3">
