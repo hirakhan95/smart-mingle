@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}Login シ - Smart Mingle Events{% endblock %}
+{% block title %}Signup シ - Smart Mingle Events{% endblock %}
 
 {% block content %}
 
@@ -12,79 +12,94 @@
             <h2 class="mb-3">Create your account</h2>
             <form id="signup" method="post" action="{% url 'account_signup' %}">
                 {% csrf_token %}
-                {{ form.as_p }}
-<!--                <div class="mb-3">-->
-<!--                    <label for="email" class="form-label"-->
-<!--                    >Email address</label-->
-<!--                    >-->
-<!--                    <input-->
-<!--                            type="email"-->
-<!--                            class="form-control"-->
-<!--                            id="email"-->
-<!--                            name="email"-->
-<!--                            aria-describedby="emailHelp"-->
-<!--                            required-->
-<!--                    />-->
-<!--                </div>-->
+<!--                {{ form.as_p }}-->
+                {% if form.errors or form.non_field_errors %}
+                <div class="alert alert-danger">
+                    <ul>
+                        {% for field in form %}
+                        {% if field.errors %}
+                        <li>{{ field.label }}: {{ field.errors|striptags }}</li>
+                        {% endif %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                <div class="mb-3">
+                    <label for="email" class="form-label"
+                    >Email address</label
+                    >
+                    <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            maxlength="320"
+                            aria-describedby="emailHelp"
+                            required
+                    />
+                </div>
 
-<!--                <div class="mb-3">-->
-<!--                    <label for="confirmed_email" class="form-label"-->
-<!--                    >Confirm email</label-->
-<!--                    >-->
-<!--                    <input-->
-<!--                            type="email"-->
-<!--                            class="form-control"-->
-<!--                            id="confirmed_email"-->
-<!--                            name="confirmed_email"-->
-<!--                            aria-describedby="emailHelp"-->
-<!--                            required-->
-<!--                    />-->
-<!--                </div>-->
+                <div class="mb-3">
+                    <label for="confirmed_email" class="form-label"
+                    >Confirm email</label
+                    >
+                    <input
+                            type="email"
+                            class="form-control"
+                            id="confirmed_email"
+                            name="email2"
+                            maxlength="320"
+                            aria-describedby="emailHelp"
+                            required
+                    />
+                </div>
 
-<!--                <div class="mb-3 error_message" id="error-message-email" style="color: red;"></div>-->
+                <div class="mb-3 error_message" id="error-message-email" style="color: red;"></div>
 
-<!--                <div class="row mb-3">-->
-<!--                    <div class="col">-->
-<!--                        <label for="first_name" class="form-label">First name</label>-->
-<!--                        <input type="text" class="form-control" id="first_name" name="first_name" required/>-->
-<!--                    </div>-->
-<!--                    <div class="col">-->
-<!--                        <label for="second_name" class="form-label">Last name</label>-->
-<!--                        <input type="text" class="form-control" id="second_name" name="second_name" required/>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="first_name" class="form-label">First name</label>
+                        <input maxlength="30" type="text" class="form-control" id="first_name" name="first_name" required/>
+                    </div>
+                    <div class="col">
+                        <label for="last_name" class="form-label">Last name</label>
+                        <input maxlength="30" type="text" class="form-control" id="last_name" name="last_name" required/>
+                    </div>
+                </div>
 
-<!--                <div class="mb-3">-->
-<!--                    <label for="password" class="form-label"-->
-<!--                    >Password</label-->
-<!--                    >-->
-<!--                    <input-->
-<!--                            type="password"-->
-<!--                            class="form-control"-->
-<!--                            id="password"-->
-<!--                            name="password"-->
-<!--                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"-->
-<!--                            title="Password must contain at least 8 characters, including 1 uppercase letter, 1 lowercase letter, and 1 number."-->
-<!--                            required-->
-<!--                    />-->
-<!--                </div>-->
+                <div class="mb-3">
+                    <label for="password" class="form-label"
+                    >Password</label
+                    >
+                    <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            name="password1"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            title="Password must contain at least 8 characters, including 1 uppercase letter, 1 lowercase letter, and 1 number."
+                            required
+                    />
+                </div>
 
-<!--                <div class="mb-3">-->
-<!--                    <label for="confirmed_password" class="form-label"-->
-<!--                    >Confirm Password</label-->
-<!--                    >-->
-<!--                    <input-->
-<!--                            type="password"-->
-<!--                            class="form-control"-->
-<!--                            id="confirmed_password"-->
-<!--                            name="confirmed_password"-->
-<!--                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"-->
-<!--                            title="Password must contain at least 8 characters, including 1 uppercase letter, 1 lowercase letter, and 1 number."-->
-<!--                            required-->
-<!--                    />-->
-<!--                </div>-->
-
-<!--                <div class="mb-3 error_message" id="error-message-password"></div>-->
+                <div class="mb-3">
+                    <label for="confirmed_password" class="form-label"
+                    >Confirm Password</label
+                    >
+                    <input
+                            type="password"
+                            class="form-control"
+                            id="confirmed_password"
+                            name="password2"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            title="Password must contain at least 8 characters, including 1 uppercase letter, 1 lowercase letter, and 1 number."
+                            required
+                    />
+                </div>
+                <div class="mb-3 error_message" id="error-message-password"></div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
