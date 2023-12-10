@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sign Up To Smart Mingle</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Shadows Into Light"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Navigation bar -->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a href="home.html" class="navbar-brand">Smart Mingle シ</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container mt-3">
+        <div class="row">
+          <div class="col-sm-12 col-lg-6"></div>
+          <div class="col-sm-12 col-lg-6">
+            <h2>Create Event</h2>
+            <p>
+              "Smart Mingle: Where Events Spark and Connections Flourish – Your
+              Event, Your Way!"
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row position-relative">
+          <div class="col-sm-12 col-lg-6">
+            <img
+              src="images/create-event.png"
+              alt="hero-image"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-sm-12 col-lg-6">
+            <form>
+              <div class="mb-3">
+                <label for="eventtitle" class="form-label">Event Title</label>
+                <input type="text" class="form-control" id="eventtitle" />
+              </div>
+
+              <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+
+                <br />
+                <img
+                  id="uploaded-image"
+                  src="https://placehold.co/400x250/C8C8C8/white?text=Upload+An+Image"
+                  alt="your image"
+                />
+                <br />
+                <br />
+                <input type="file" id="image" />
+              </div>
+
+              <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea id="description"></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" class="form-control" id="location" />
+              </div>
+
+              <div class="mb-3">
+                <label for="inputState" class="form-label">Category</label>
+                <select id="inputState" class="form-select">
+                  <option selected>Choose...</option>
+                  <option>Corporate</option>
+                  <option>Exhibition</option>
+                  <option>Sport</option>
+                  <option>Charity</option>
+                  <option>Workshop</option>
+                  <option>Virtual</option>
+                  <option>Leisure</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Select Date and Time:</label>
+                <div class="form-group">
+                  <div class="datetimepicker">
+                    <input type="date" id="date" />
+                    <span></span>
+                    <input type="time" id="time" />
+                  </div>
+                </div>
+              </div>
+              <div class="float-end">
+                <button type="button" class="btn btn-primary">
+                  Create Event
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer Section Start -->
+    <footer>
+      <div class="ion-icon-social">
+        <a href="http://instagram.com"
+          ><i class="icon ion-social-instagram"></i
+        ></a>
+        <a href="http://snapchat.com"
+          ><i class="icon ion-social-snapchat"></i
+        ></a>
+        <a href="http://twitter.com"><i class="icon ion-social-twitter"></i></a>
+        <a href="http://facebook.com"
+          ><i class="icon ion-social-facebook"></i
+        ></a>
+      </div>
+      <p class="copyright-text">
+        &copy; 2023 Smart Mingle. All rights reserved.
+      </p>
+    </footer>
+
+    <!-- Footer Section End -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.1.2/build/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script
+      src="https://cdn.tiny.cloud/1/h9c3p48xof44x9gg535v3mnv0rhqw5mj6z5ko6k9xbrefuc2/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
