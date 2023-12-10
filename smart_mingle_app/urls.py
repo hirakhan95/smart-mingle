@@ -1,15 +1,15 @@
 from django.urls import path
-from smart_mingle_app import views as app
+from smart_mingle_app import views
 
-app_name = 'smart_mingle_app'
+app_name = 'app'
 
 
 urlpatterns = [
-    path('', app.home, name='home'),
-    path('contact', app.contact, name='contact'),
-    path('create_event', app.create_event, name='create_event'),
-    path('login', app.login, name='login'),
-    path('signup', app.signup, name='signup'),
-    path('event', app.event, name='event'),
-    path('user', app.user, name='user'),
+    path('', views.home, name='home'),
+    path('contact', views.contact, name='contact'),
+    path('create_event', views.create_event, name='create_event'),
+    path('login', views.login, name='login'),
+    path('signup', views.signup, name='signup'),
+    path('event', views.event, name='event'),
+    path('user', views.user, name='user'),
 ]

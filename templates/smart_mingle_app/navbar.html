@@ -3,7 +3,7 @@
         <div
                 class="col-lg-3 col-md-12 col-sm-12 mb-2 d-flex justify-content-center justify-content-md-start justify-content-lg-center"
         >
-            <a href="home.html" class="navbar-brand ms-4">Smart Mingle シ</a>
+            <a href="{% url 'app:home' %}" class="navbar-brand ms-4">Smart Mingle シ</a>
         </div>
         <div class="col-lg-5 col-sm-12 mb-2">
             <form role="search" class="d-flex">
@@ -23,13 +23,13 @@
         >
             <ul class="navbar-nav d-flex flex-row">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page">Contact Us</a>
+                    <a class="nav-link active" href="{% url 'app:contact' %}">Contact Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">Log In</a>
+                    <a class="nav-link" href="{% url 'app:login' %}">Log In</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">Sign Up</a>
+                    <a class="nav-link" href="{% url 'app:signup' %}">Sign Up</a>
                 </li>
             </ul>
         </div>

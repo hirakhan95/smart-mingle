@@ -13,7 +13,7 @@ function verify_exist(id) {
 // Tiny Initialization
 tinymce.init({
   menubar: false,
-  selector: "textarea",
+  selector: "#event_description",
   plugins:
     "autolink charmap codesample emoticons link lists table visualblocks wordcount checklist casechange export permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss",
   toolbar:
