@@ -12,7 +12,6 @@
             <h2 class="mb-3">Create your account</h2>
             <form id="signup" method="post" action="{% url 'account_signup' %}">
                 {% csrf_token %}
-<!--                {{ form.as_p }}-->
                 {% if form.errors or form.non_field_errors %}
                 <div class="alert alert-danger">
                     <ul>
