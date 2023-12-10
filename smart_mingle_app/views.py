@@ -42,6 +42,6 @@ def event(request):
     return render(request, 'event.html')
 
 
-@require_http_methods(["GET", "POST"])
+@require_http_methods(["GET"])
 def user(request):
     return render(request, 'user.html')
