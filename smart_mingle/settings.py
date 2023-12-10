@@ -139,3 +139,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://smart-mingle-00648c22d190.herokuapp.com',
+    '127.0.0.1:8000'
+]
