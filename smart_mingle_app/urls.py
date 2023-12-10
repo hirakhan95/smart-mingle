@@ -7,4 +7,5 @@ app_name = 'smart_mingle_app'
 urlpatterns = [
     path('', app.home, name='home'),
     path('contact', app.contact, name='contact'),
+    path('create_event', app.create_event, name='create_event'),
 ]
