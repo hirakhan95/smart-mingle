@@ -35,3 +35,13 @@ def signup(request):
     if request.method == 'POST':
         print(request.POST)
     return render(request, 'signup.html')
+
+
+@require_http_methods(["GET"])
+def event(request):
+    return render(request, 'event.html')
+
+
+@require_http_methods(["GET", "POST"])
+def user(request):
+    return render(request, 'user.html')

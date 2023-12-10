@@ -10,4 +10,6 @@ urlpatterns = [
     path('create_event', app.create_event, name='create_event'),
     path('login', app.login, name='login'),
     path('signup', app.signup, name='signup'),
+    path('event', app.event, name='event'),
+    path('user', app.user, name='user'),
 ]
