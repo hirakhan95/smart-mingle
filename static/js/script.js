@@ -73,11 +73,11 @@ if (verify_exist("signup")) {
     .getElementById("signup")
     .addEventListener("submit", function (event) {
       var email = document.getElementById("email").value;
-      var confirmedEmail = document.getElementById("confirmed_email").value;
+      var confirmedEmail = document.getElementById("email2").value;
 
-      var password = document.getElementById("password").value;
+      var password = document.getElementById("password1").value;
       var confirmedPassword =
-        document.getElementById("confirmed_password").value;
+        document.getElementById("password2").value;
 
       if (email !== confirmedEmail) {
         event.preventDefault(); // Prevent form submission
