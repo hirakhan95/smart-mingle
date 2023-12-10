@@ -8,61 +8,66 @@
     <div class="row align-items-center">
         <div class="col-md-6">
             <h2>Create your account</h2>
-            <form>
+            <form id="signup" method="post" action="signup">
+                {% csrf_token %}
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"
+                    <label for="email" class="form-label"
                     >Email address</label
                     >
                     <input
                             type="email"
                             class="form-control"
-                            id="exampleInputEmail1"
+                            id="email"
+                            name="email"
                             aria-describedby="emailHelp"
                     />
                 </div>
 
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"
+                    <label for="confirmed_email" class="form-label"
                     >Confirm email</label
                     >
                     <input
                             type="email"
                             class="form-control"
-                            id="exampleInputEmail1"
+                            id="confirmed_email"
+                            name="confirmed_email"
                             aria-describedby="emailHelp"
                     />
                 </div>
 
                 <div class="row">
                     <div class="col">
-                        <label for="fname" class="form-label">First name</label>
-                        <input type="text" class="form-control" id="fname"/>
+                        <label for="first_name" class="form-label">First name</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name"/>
                     </div>
                     <div class="col">
-                        <label for="lname" class="form-label">Last name</label>
-                        <input type="text" class="form-control" id="lname"/>
+                        <label for="second_name" class="form-label">Last name</label>
+                        <input type="text" class="form-control" id="second_name" name="second_name"/>
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label"
+                    <label for="password" class="form-label"
                     >Password</label
                     >
                     <input
                             type="password"
                             class="form-control"
-                            id="exampleInputPassword1"
+                            id="password"
+                            name="password"
                     />
                 </div>
 
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label"
+                    <label for="confirmed_password" class="form-label"
                     >Confirm Password</label
                     >
                     <input
                             type="password"
                             class="form-control"
-                            id="exampleInputPassword1"
+                            id="confirmed_password"
+                            name="confirmed_password"
                     />
                 </div>
 

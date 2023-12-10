@@ -8,4 +8,6 @@ urlpatterns = [
     path('', app.home, name='home'),
     path('contact', app.contact, name='contact'),
     path('create_event', app.create_event, name='create_event'),
+    path('login', app.login, name='login'),
+    path('signup', app.signup, name='signup'),
 ]

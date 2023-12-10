@@ -21,3 +21,17 @@ def create_event(request):
     if request.method == 'POST':
         print(request.POST)
     return render(request, 'create_event.html')
+
+
+@require_http_methods(["GET", "POST"])
+def login(request):
+    if request.method == 'POST':
+        print(request.POST)
+    return render(request, 'login.html')
+
+
+@require_http_methods(["GET", "POST"])
+def signup(request):
+    if request.method == 'POST':
+        print(request.POST)
+    return render(request, 'signup.html')
