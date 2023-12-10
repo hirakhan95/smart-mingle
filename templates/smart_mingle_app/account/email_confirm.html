@@ -12,11 +12,13 @@
 <div class="container mt-3">
     <div class="row align-items-center">
         <div class="col-lg-6 col-sm-12">
+
+            {% if confirmation %}
+            {% if can_confirm %}
+
             <h3 class="mb-4">
                 Smart Mingle - Confirm your email address to be with us !
             </h3>
-            {% if confirmation %}
-            {% if can_confirm %}
 
             <p>
                 {% blocktrans with confirmation.email_address.email as email %}Please confirm that <a
@@ -30,9 +32,17 @@
                     {% csrf_token %}
                     <button type="submit" class="btn btn-primary">Confirm</button>
                 {% endslot %}
-            {% endelement %}
 
+            {% endelement %}
+            {% else %}
+            <h3 class="mb-4">
+                Smart Mingle - Sorry YOU CANT YOU CANT YOU CANT !
+            </h3>
             {% endif %}
+            {% else %}
+            <h3 class="mb-4">
+                Smart Mingle - Thank you for being with US !
+            </h3>
             {% endif %}
         </div>
 
