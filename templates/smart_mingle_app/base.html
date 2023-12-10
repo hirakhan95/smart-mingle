@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -6,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Shadows Into Light" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     {% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -30,7 +31,7 @@
       src="https://cdn.tiny.cloud/1/h9c3p48xof44x9gg535v3mnv0rhqw5mj6z5ko6k9xbrefuc2/tinymce/6/tinymce.min.js"
       referrerpolicy="origin"
     ></script>
-    <script src="static/js/script.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>
