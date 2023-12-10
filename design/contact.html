@@ -16,7 +16,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="static/css/style.css" />
   </head>
   <body>
     <header>
@@ -55,21 +55,13 @@
                   type="email"
                   class="form-control"
                   id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
                   required
                 />
               </div>
 
               <div class="mb-3">
                 <label for="phonenum" class="form-label">Phone Number:</label>
-                <input
-                  id="phonenum"
-                  type="tel"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  required
-                />
+                <input id="phonenum" type="tel" class="form-control" required />
               </div>
 
               <div class="form-group">
@@ -85,7 +77,11 @@
           </div>
 
           <div class="col-md-6">
-            <img src="images/contact.png" alt="hero-image" class="img-fluid" />
+            <img
+              src="static/images/contact.png"
+              alt="hero-image"
+              class="img-fluid"
+            />
           </div>
         </div>
       </div>
@@ -115,6 +111,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <!-- Include Bootstrap and Tempus Dominus JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="static/js/script.js"></script>
   </body>
 </html>
