@@ -31,64 +31,92 @@
       <div class="container mt-4">
         <div class="row align-items-center">
           <div class="col-md-6">
-            <h2>Create your account</h2>
-            <form>
+            <h2 class="mb-3">Create your account</h2>
+            <form id="signup" method="post" action="signup.html">
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
-                  >Email address</label
-                >
+                <label for="email" class="form-label">Email address</label>
                 <input
                   type="email"
                   class="form-control"
-                  id="exampleInputEmail1"
+                  id="email"
+                  name="email"
                   aria-describedby="emailHelp"
+                  required
                 />
               </div>
 
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
+                <label for="confirmed_email" class="form-label"
                   >Confirm email</label
                 >
                 <input
                   type="email"
                   class="form-control"
-                  id="exampleInputEmail1"
+                  id="confirmed_email"
+                  name="confirmed_email"
                   aria-describedby="emailHelp"
+                  required
                 />
               </div>
 
-              <div class="row">
+              <div
+                class="mb-3 error_message"
+                id="error-message-email"
+                style="color: red"
+              ></div>
+
+              <div class="row mb-3">
                 <div class="col">
-                  <label for="fname" class="form-label">First name</label>
-                  <input type="text" class="form-control" id="fname" />
+                  <label for="first_name" class="form-label">First name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="first_name"
+                    name="first_name"
+                    required
+                  />
                 </div>
                 <div class="col">
-                  <label for="lname" class="form-label">Last name</label>
-                  <input type="text" class="form-control" id="lname" />
+                  <label for="second_name" class="form-label">Last name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="second_name"
+                    name="second_name"
+                    required
+                  />
                 </div>
               </div>
 
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label"
-                  >Password</label
-                >
+                <label for="password" class="form-label">Password</label>
                 <input
                   type="password"
                   class="form-control"
-                  id="exampleInputPassword1"
+                  id="password"
+                  name="password"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  title="Password must contain at least 8 characters, including 1 uppercase letter, 1 lowercase letter, and 1 number."
+                  required
                 />
               </div>
 
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label"
+                <label for="confirmed_password" class="form-label"
                   >Confirm Password</label
                 >
                 <input
                   type="password"
                   class="form-control"
-                  id="exampleInputPassword1"
+                  id="confirmed_password"
+                  name="confirmed_password"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  title="Password must contain at least 8 characters, including 1 uppercase letter, 1 lowercase letter, and 1 number."
+                  required
                 />
               </div>
+
+              <div class="mb-3 error_message" id="error-message-password"></div>
 
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
@@ -127,8 +155,12 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <!-- Include Bootstrap and Tempus Dominus JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.1.2/build/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script
+      src="https://cdn.tiny.cloud/1/h9c3p48xof44x9gg535v3mnv0rhqw5mj6z5ko6k9xbrefuc2/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
     <script src="static/js/script.js"></script>
   </body>
 </html>

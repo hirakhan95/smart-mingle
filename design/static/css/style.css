@@ -35,6 +35,10 @@ nav ul li {
   margin-right: 20px;
 }
 
+.error_message {
+    color: red;
+}
+
 .event-thumbnails {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

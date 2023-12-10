@@ -54,10 +54,15 @@
             />
           </div>
           <div class="col-sm-12 col-lg-6">
-            <form>
+            <form id="create_event" method="post" action="create_event">
               <div class="mb-3">
-                <label for="eventtitle" class="form-label">Event Title</label>
-                <input type="text" class="form-control" id="eventtitle" />
+                <label for="title" class="form-label">Event Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="title"
+                  name="title"
+                />
               </div>
 
               <div class="mb-3">
@@ -71,22 +76,32 @@
                 />
                 <br />
                 <br />
-                <input type="file" id="image" />
+                <input
+                  type="file"
+                  name="image"
+                  pattern="([^\s]+(\.(?i)(jpg|png|jpeg))$)"
+                  id="image"
+                />
               </div>
 
               <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea id="description"></textarea>
+                <textarea id="description" name="description"></textarea>
               </div>
 
               <div class="mb-3">
                 <label for="location" class="form-label">Location</label>
-                <input type="text" class="form-control" id="location" />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="location"
+                  name="location"
+                />
               </div>
 
               <div class="mb-3">
-                <label for="inputState" class="form-label">Category</label>
-                <select id="inputState" class="form-select">
+                <label for="category" class="form-label">Category</label>
+                <select id="category" name="category" class="form-select">
                   <option selected>Choose...</option>
                   <option>Corporate</option>
                   <option>Exhibition</option>
@@ -102,14 +117,14 @@
                 <label class="form-label">Select Date and Time:</label>
                 <div class="form-group">
                   <div class="datetimepicker">
-                    <input type="date" id="date" />
+                    <input type="date" name="date" id="date" />
                     <span></span>
-                    <input type="time" id="time" />
+                    <input type="time" name="time" id="time" />
                   </div>
                 </div>
               </div>
               <div class="float-end">
-                <button type="button" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary">
                   Create Event
                 </button>
               </div>
