@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load account %}
+{% load allauth %}
+
+{% block title %}Home シ - Smart Mingle Events{% endblock %}
+
+{% block content %}
+
+<div class="container mt-3">
+    <div class="row align-items-center">
+        <div class="col-lg-6 col-sm-12">
+            <h3 class="mb-4">
+                Smart Mingle - Confirm your email address to be with us !
+            </h3>
+            {% if confirmation %}
+            {% if can_confirm %}
+
+            <p>
+                {% blocktrans with confirmation.email_address.email as email %}Please confirm that <a
+                    href="mailto:{{ email }}">{{ email }}</a> is an email address for user {{ user_display }}
+                {% endblocktrans %}
+            </p>
+
+            {% url 'account_confirm_email' confirmation.key as action_url %}
+            {% element form method="post" action=action_url %}
+                 {% slot actions %}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Confirm</button>
+                {% endslot %}
+            {% endelement %}
+
+            {% endif %}
+            {% endif %}
+        </div>
+
+        <div class="col-lg-6 col-sm-12">
+            <img src="{%static 'images/hero.png' %}" alt="hero-image" class="img-fluid"/>
+        </div>
+    </div>
+</div>
+{% endblock %}
