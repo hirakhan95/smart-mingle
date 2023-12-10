@@ -1,53 +1,165 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: smoke white;
+}
+/*
+
+.header .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
 }
 
-h1 {
-    color: red;
-    }
-
-ul {
-    list-style-type: none;
-    padding: 0;
+.logo {
+    font-size: 40px;
+    font-weight: bold;
 }
 
-li {
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
+.search input {
     padding: 10px;
+    margin: 0 20px;
+}
+*//*
+*/
+/*
+
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    margin-left: 20px;
 }
 
-form {
-    margin-top: 20px;
+.main-content {
+    text-align: center;
+    padding: 20px;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
+.main-content h1 {
+    font-size: 24px;
+    color: #333;
 }
 
-input, textarea {
-    width: 100%;
-    padding: 8px;
+.main-content p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.events {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.event {
+    text-align: center;
+}
+
+.event img {
+    width: 100px; */
+
+/* Adjust as per your image size */
+
+
+    height: auto;
     margin-bottom: 10px;
-    box-sizing: border-box;
 }
 
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
+.create-event h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.create-event button {
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.footer {
+
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 20px;
+}
+
+.social-media a {
+    text-decoration: none;
+    color: black;
+    margin: 0 10px;
+}
+
+.navbar {
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: white;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.search {
+    display: inline-block;
+    align-items: center;
+}
+
+.search input {
+    padding: 8px;
     border: none;
-    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.search button {
+    padding: 8px 16px;
+    background-color: green;
+    color: white;
+    border: none;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #45a049;
+
+/* Footer section start */
+footer {
+    padding: 20px 0;
+    background-color: green;
+    color:red;
 }
 
-a {
-    margin-left: 10px;
+footer hr {
+    opacity: 80%;
+    width: 90%;
+    margin-bottom: 40px;
 }
+
+
+footer .ion-icon-social {
+    text-align:center;
+}
+
+footer .ion-icon-social > a {
+    font-size:24px;
+    opacity:0.8;
+    width:40px;
+    margin:0 8px;
+    display:inline-block;
+    border-radius:50%;
+    border:1px solid black;
+}
+
+footer .ion-icon-social a i {
+    color: black;
+}
+
+
+footer .copyright-text {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color: black;
+    margin-bottom:0;
+}
+
+/* Footer section end */
