@@ -7,7 +7,7 @@
 <div class="container mt-4">
     <div class="row align-items-center">
         <div class="col-md-6">
-            <h2>Create your account</h2>
+            <h2 class="mb-3">Create your account</h2>
             <form id="signup" method="post" action="signup">
                 {% csrf_token %}
                 <div class="mb-3">
@@ -20,6 +20,7 @@
                             id="email"
                             name="email"
                             aria-describedby="emailHelp"
+                            required
                     />
                 </div>
 
@@ -33,17 +34,20 @@
                             id="confirmed_email"
                             name="confirmed_email"
                             aria-describedby="emailHelp"
+                            required
                     />
                 </div>
 
-                <div class="row">
+                <div class="mb-3 error_message" id="error-message-email" style="color: red;"></div>
+
+                <div class="row mb-3">
                     <div class="col">
                         <label for="first_name" class="form-label">First name</label>
-                        <input type="text" class="form-control" id="first_name" name="first_name"/>
+                        <input type="text" class="form-control" id="first_name" name="first_name" required/>
                     </div>
                     <div class="col">
                         <label for="second_name" class="form-label">Last name</label>
-                        <input type="text" class="form-control" id="second_name" name="second_name"/>
+                        <input type="text" class="form-control" id="second_name" name="second_name" required/>
                     </div>
                 </div>
 
@@ -56,6 +60,9 @@
                             class="form-control"
                             id="password"
                             name="password"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            title="Password must contain at least 8 characters, including 1 uppercase letter, 1 lowercase letter, and 1 number."
+                            required
                     />
                 </div>
 
@@ -68,8 +75,13 @@
                             class="form-control"
                             id="confirmed_password"
                             name="confirmed_password"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            title="Password must contain at least 8 characters, including 1 uppercase letter, 1 lowercase letter, and 1 number."
+                            required
                     />
                 </div>
+
+                <div class="mb-3 error_message" id="error-message-password"></div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
