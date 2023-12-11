@@ -1,6 +1,6 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
-from django.contrib.auth.decorators import login_required
 
 
 @require_http_methods(["GET", "POST"])
@@ -44,7 +44,36 @@ def event(request):
 
 
 @login_required
-@require_http_methods(["GET"])
+@require_http_methods(["GET", "POST"])
 def user(request):
     user = request.user
-    return render(request, 'user.html')
+    if request.method == 'POST':
+        user.email = request.POST.get('email', user.email)
+        user.first_name = request.POST.get('first_name', user.first_name)
+        user.last_name = request.POST.get('last_name', user.last_name)
+        # user.phonenum = request.POST.get('phonenum', user.phonenum)  # Assuming 'phonenum' is a valid user attribute
+
+        user.save()
+
+    context = {
+        'email': user.email,
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'phonenum': 'asdads',
+        'profilepic': 'static/images/user.png'
+    }
+    return render(request, 'user.html', context=context)
+
+
+
+@login_required
+@require_http_methods(["GET"])
+def user_edit(request):
+    user = request.user
+    context = {
+        'email': user.email,
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'phonenum': 'asdads',
+    }
+    return render(request, 'user_edit.html', context=context)

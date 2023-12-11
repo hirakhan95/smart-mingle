@@ -2,62 +2,67 @@
 
 {% load static %}
 
-{% block title %}My Profile シ - Smart Mingle Events{% endblock %}
+{% block title %}Home シ - Smart Mingle Events{% endblock %}
 
 {% block content %}
 
+
+
 <div class="container mt-3 emp-profile">
-    <form method="get" action="{% url 'app:user_edit' %}">
+    <form method="post" action="{% url 'app:user' %}">
+        {% csrf_token %}
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
-                    <img src="{{profilepic}}"
+                    <img src="static/images/user.png"
                          alt="user-image"/>
+                    <div class="file btn btn-lg btn-primary">
+                        Change Photo
+                        <input type="file" name="file"/>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="profile-head">
-                    <h1>{{first_name}} {{last_name}}</h1>
+                    <h1>{{user.first_name}} {{user.last_name}}</h1>
                     <div class="tab-content profile-tab" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="row">
                                 <div class="col-md-6 mt-4">
                                     <label>First Name</label>
                                 </div>
-                                <div class="col-md-6 mt-4">
-                                    <p>{{first_name}}</p>
+                                <div class="mb-3">
+
+                                    <input type="text" class="form-control" id="firstName" name="first_name" value="{{first_name}}"
+                                    >
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Last Name</label>
                                 </div>
-                                <div class="col-md-6">
-                                    <p>{{last_name}}</p>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="lastName" name="last_name" value="{{last_name}}">
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Email</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>{{email}}</p>
-                                </div>
-                            </div>
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Phone</label>
                                 </div>
-                                <div class="col-md-6">
-                                    <p>{{phonenum}}</p>
+                                <div>
+                                <input id="phonenum" name="phonenum" pattern="\d{2,5}-\d{3,9}"
+                                       title="Phone number (e.g., 030-1234567)" type="text" class="form-control" value="{{phonenum}}"/>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-2">
-                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+            <div class="col-md-3">
+                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Save Changes"/>
             </div>
         </div>
     </form>
