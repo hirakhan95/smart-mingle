@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/extended_bootstrap.css' %}" />
     {% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -22,16 +23,15 @@
     <footer>
         {% include 'footer.html' %}
     </footer>
-
+    {% block extra_js %}
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.1.2/build/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <script
       src="https://cdn.tiny.cloud/1/h9c3p48xof44x9gg535v3mnv0rhqw5mj6z5ko6k9xbrefuc2/tinymce/6/tinymce.min.js"
       referrerpolicy="origin"
     ></script>
     <script src="{% static 'js/script.js' %}"></script>
-    {% block extra_js %}{% endblock %}
+    {% endblock %}
 </body>
 </html>
