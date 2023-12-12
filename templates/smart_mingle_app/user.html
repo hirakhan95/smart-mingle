@@ -8,6 +8,7 @@
 
 <div class="container mt-3 emp-profile">
     <form method="get" action="{% url 'app:user_edit' %}">
+        {% csrf_token %}
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
