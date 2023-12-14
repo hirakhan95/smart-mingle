@@ -3,3 +3,4 @@ psycopg2-binary==2.9.9
 gunicorn
 django-allauth==0.58.2
 whitenoise==6.6.0
+cloudinary

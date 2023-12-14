@@ -1,9 +1,14 @@
 import os
-
-
+import cloudinary
 
 if os.path.isfile("env.py"):
     import env
+
+cloudinary.config(
+    cloud_name = "CLOUDINARY_CLOUD_NAME",
+    api_key = "CLOUDINARY_API_KEY",
+    api_secret = "CLOUDINARY_API_SECRET"
+)
 
 """
 Django settings for smart_mingle project.
@@ -22,7 +27,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -32,8 +36,8 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://smart-mingle-00648c22d190.herokuapp.com/', 'smart-mingle-00648c22d190.herokuapp.com']
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://smart-mingle-00648c22d190.herokuapp.com/',
+                 'smart-mingle-00648c22d190.herokuapp.com']
 
 # Application definition
 
@@ -52,7 +56,6 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 2
-
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -106,7 +109,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'smart_mingle.wsgi.application'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -120,7 +122,6 @@ DATABASES = {
         'PORT': os.getenv("DB_PORT"),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -140,7 +141,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -153,7 +153,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
