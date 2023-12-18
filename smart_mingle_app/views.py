@@ -59,9 +59,7 @@ def user(request):
 
         extra_details = ExtraDetails.objects.filter(user=request.user).first()
         if not extra_details:
-            extra_details = ExtraDetails(
-                user=request.user
-            )
+            extra_details = ExtraDetails(user=request.user)
 
             if image_url is None:
                 image_url = "static/images/user.png"
