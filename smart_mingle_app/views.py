@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
-
+from .models import ExtraDetails
 from cloudinary.uploader import upload
 
 
@@ -48,31 +48,54 @@ def event(request):
 @login_required
 @require_http_methods(["GET", "POST"])
 def user(request):
-    user = request.user
     if request.method == 'POST':
-        image = request.FILES['file']
+        if 'file' in request.FILES:
+            image = request.FILES['file']
+            upload_result = upload(image)
+            image_url = upload_result.get('url')
+        else:
+            image_url = "static/images/user.png"
 
-        # upload_result = upload(image)
-        # image_url = upload_result.get('url')
+        extra_details = ExtraDetails.objects.filter(user=request.user).first()
+        if not extra_details:
+            extra_details = ExtraDetails(
+                user = request.user
+            )
 
-        image_url = 'http://res.cloudinary.com/dpl3nuqof/image/upload/v1702375108/cld-sample-5.jpg'
+        extra_details.phone_num = request.POST['phonenum']
+        extra_details.display_pic = image_url
+        extra_details.save()
 
-        user.email = request.POST.get('email', user.email)
-        user.first_name = request.POST.get('first_name', user.first_name)
-        user.last_name = request.POST.get('last_name', user.last_name)
-        # user.phonenum = request.POST.get('phonenum', user.phonenum)  # Assuming 'phonenum' is a valid user attribute
+        request.user.first_name = request.POST['first_name']
+        request.user.last_name = request.POST['last_name']
+        request.user.save()
 
-        user.save()
+        print(extra_details)
+
+    image_url = "static/images/user.png"
+    phone_num = ''
+
+    extra_details = ExtraDetails.objects.filter(user=request.user).first()
+    if extra_details:
+        image_url = extra_details.display_pic
+        phone_num = extra_details.phone_num
+
+
+    # user.email = request.POST.get('email', user.email)
+    # user.first_name = request.POST.get('first_name', user.first_name)
+    # user.last_name = request.POST.get('last_name', user.last_name)
+    # user.phonenum=request.POST.get('phonenum',user.phonenum)#Assuming'phonenum'isavaliduserattribute
+
+    #user.save()
 
     context = {
-        'email': user.email,
-        'first_name': user.first_name,
-        'last_name': user.last_name,
-        'phonenum': '031-123456',
-        'profilepic': 'static/images/user.png'
+        'email': request.user.email,
+        'first_name': request.user.first_name,
+        'last_name': request.user.last_name,
+        'phonenum': phone_num,
+        'profilepic': image_url
     }
     return render(request, 'user.html', context=context)
-
 
 
 @login_required
@@ -83,6 +106,8 @@ def user_edit(request):
         'email': user.email,
         'first_name': user.first_name,
         'last_name': user.last_name,
-        'phonenum': '031-123456'
+        'phone_num': '030-1234567'
     }
+
+    print('abc')
     return render(request, 'user_edit.html', context=context)
