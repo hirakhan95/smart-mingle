@@ -1,12 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
+from django.db import models
 
 
 class ExtraDetails(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user', null=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     phone_num = models.CharField(max_length=20)
     display_pic = models.CharField(max_length=250)
+
+    def __str__(self):
+        return str(self.user)
 
 
 class Contact(models.Model):
