@@ -9,6 +9,13 @@ class ExtraDetails(models.Model):
     display_pic = models.CharField(max_length=250)
 
 
+class Contact(models.Model):
+    name = models.CharField(max_length=20)
+    email = models.EmailField(max_length=20)
+    phone_number = models.CharField(max_length=20)
+    description = models.CharField(max_length=250)
+
+
 class Event(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
