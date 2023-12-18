@@ -12,11 +12,11 @@
     <div class="row align-items-center">
         <div class="col-md-6">
             <h2>Contact Us</h2>
-            <form id="contact" method="post" action="{% url 'app:contact' %}">
+            <form id="contact" method="post" action="{% url 'app:contact_success' %}">
                 {% csrf_token %}
                 <div class="mb-3">
                     <label for="name" class="form-label">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name"/>
+                    <input type="text" class="form-control" id="name" name="name" maxlength="50"/>
                 </div>
 
                 <div class="mb-3">
@@ -28,13 +28,14 @@
                             class="form-control"
                             id="email"
                             name="email"
+                            maxlength="50"
                             required
                     />
                 </div>
 
                 <div class="mb-3">
                     <label for="phonenum" class="form-label">Phone Number:</label>
-                    <input id="phonenum" name="phonenum" pattern="\d{2,5}-\d{3,9}" title="Phone number (e.g., 030-1234567)" type="text" class="form-control" required/>
+                    <input id="phonenum" name="phonenum" pattern="\d{5,13}" title="Phone number (e.g., 0301234567)" type="number" class="form-control" maxlength="20" required/>
                 </div>
 
                 <div class="form-group">
@@ -44,6 +45,7 @@
                             id="description"
                             name="description"
                             rows="3"
+                            maxlength="150"
                     ></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
