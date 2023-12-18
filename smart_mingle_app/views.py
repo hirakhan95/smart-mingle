@@ -13,7 +13,7 @@ def home(request):
     return render(request, 'home.html')
 
 
-@require_http_methods(["GET", "POST"])
+
 def contact(request):
     if request.method == 'POST':
         print(request.POST)
@@ -52,7 +52,12 @@ def user(request):
     if request.method == 'POST':
         if 'file' in request.FILES:
             image = request.FILES['file']
-            upload_result = upload(image)
+            upload_result = upload(image,
+                                   transformation=[
+                                       {'width': 300, 'height': 300, 'gravity': "face", 'crop': "thumb"},
+                                       {'radius': "max"},
+                                       {'effect': "sharpen"}
+                                   ])
             image_url = upload_result.get('url')
         else:
             image_url = None
