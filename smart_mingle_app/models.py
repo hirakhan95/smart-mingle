@@ -10,10 +10,10 @@ class ExtraDetails(models.Model):
 
 
 class Contact(models.Model):
-    name = models.CharField(max_length=20)
-    email = models.EmailField(max_length=20)
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=50)
     phone_number = models.CharField(max_length=20)
-    description = models.CharField(max_length=250)
+    description = models.CharField(max_length=150)
 
 
 class Event(models.Model):
