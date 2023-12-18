@@ -101,11 +101,22 @@ def user(request):
 @require_http_methods(["GET"])
 def user_edit(request):
     user = request.user
+
+    extra_details = ExtraDetails.objects.filter(user=user).first()
+
+    image_url = "static/images/user.png"
+    phone_num = ''
+
+    if extra_details != None:
+        image_url = extra_details.display_pic
+        phone_num = extra_details.phone_num
+
     context = {
         'email': user.email,
         'first_name': user.first_name,
         'last_name': user.last_name,
-        'phone_num': '030-1234567'
+        'phone_num': phone_num,
+        'profilepic': image_url
     }
 
     print('abc')
