@@ -27,6 +27,11 @@ def contact_success(request):
     return render(request, 'contact_success.html')
 
 
+@require_http_methods(["GET"])
+def event(request):
+    return render(request, 'event.html')
+
+
 @require_http_methods(["GET", "POST"])
 def create_event(request):
     if request.method == 'POST':
@@ -46,11 +51,6 @@ def signup(request):
     if request.method == 'POST':
         print(request.POST)
     return render(request, 'signup.html')
-
-
-@require_http_methods(["GET"])
-def event(request):
-    return render(request, 'event.html')
 
 
 @login_required
