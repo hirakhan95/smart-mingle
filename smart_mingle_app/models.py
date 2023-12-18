@@ -1,5 +1,12 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
+
+
+class ExtraDetails(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user', null=False)
+    phone_num = models.CharField(max_length=20)
+    display_pic = models.CharField(max_length=250)
 
 
 class Event(models.Model):
@@ -10,10 +17,3 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
-
-
-
-
-# class CustomUser(AbstractUser):
-#     # add additional fields here if needed
-#     pass
