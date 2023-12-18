@@ -1,8 +1,9 @@
+from cloudinary.uploader import upload
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
+
 from .models import ExtraDetails
-from cloudinary.uploader import upload
 
 
 @require_http_methods(["GET", "POST"])
@@ -54,13 +55,19 @@ def user(request):
             upload_result = upload(image)
             image_url = upload_result.get('url')
         else:
-            image_url = "static/images/user.png"
+            image_url = None
 
         extra_details = ExtraDetails.objects.filter(user=request.user).first()
         if not extra_details:
             extra_details = ExtraDetails(
-                user = request.user
+                user=request.user
             )
+
+            if image_url is None:
+                image_url = "static/images/user.png"
+        else:
+            if image_url is None:
+                image_url = extra_details.display_pic
 
         extra_details.phone_num = request.POST['phonenum']
         extra_details.display_pic = image_url
@@ -79,14 +86,6 @@ def user(request):
     if extra_details:
         image_url = extra_details.display_pic
         phone_num = extra_details.phone_num
-
-
-    # user.email = request.POST.get('email', user.email)
-    # user.first_name = request.POST.get('first_name', user.first_name)
-    # user.last_name = request.POST.get('last_name', user.last_name)
-    # user.phonenum=request.POST.get('phonenum',user.phonenum)#Assuming'phonenum'isavaliduserattribute
-
-    #user.save()
 
     context = {
         'email': request.user.email,
