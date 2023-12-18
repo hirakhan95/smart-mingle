@@ -2,8 +2,7 @@ from cloudinary.uploader import upload
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
-
-from .models import ExtraDetails
+from .models import ExtraDetails, Contact
 
 
 @require_http_methods(["GET", "POST"])
@@ -13,11 +12,19 @@ def home(request):
     return render(request, 'home.html')
 
 
-
+@require_http_methods(["GET"])
 def contact(request):
-    if request.method == 'POST':
-        print(request.POST)
     return render(request, 'contact.html')
+
+
+@require_http_methods(["POST"])
+def contact_success(request):
+    if request.method == 'POST':
+        contact_message = Contact(name=request.POST['name'], email=request.POST['email'], phone_number=request.POST['phonenum'],
+                                  description=request.POST['description'])
+
+        contact_message.save()
+    return render(request, 'contact_success.html')
 
 
 @require_http_methods(["GET", "POST"])
