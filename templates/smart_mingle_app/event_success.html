@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Your message has been sent! シ - Smart Mingle Events{% endblock %}
+
+{% block content %}
+
+<div class="container mt-3">
+    <div class="row align-items-center">
+        <div class="col-lg-6 col-sm-12">
+
+          <h3 class="mb-4">
+                Smart Mingle - Your Event has been saved! シ
+        </div>
+
+        <div class="col-lg-6 col-sm-12">
+            <img src="{%static 'images/contact_success.png' %}" alt="logout-image" class="img-fluid"/>
+        </div>
+    </div>
+</div>
+{% endblock %}
