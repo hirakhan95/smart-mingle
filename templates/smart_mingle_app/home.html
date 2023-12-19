@@ -235,17 +235,28 @@
             </button>
           </div>
 
-
+        {% if user.is_authenticated %}
         <!-- Centered Text -->
         <div class=" mt-5 text-center">
             <h2>Want to Create an Event?</h2>
             <p>
                 Craft your dream event effortlessly with our user-friendly platform. From invitations to RSVPs, we've got you covered. Create, celebrate, and let us handle the details!
             </p>
-            <button type="button" class="btn btn-primary btn-lg" href="">
+            <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='{% url 'app:create_event' %}'" >
+                Create Event Now!
+            </button>
+        </div>
+          {% else %}
+          <div class=" mt-5 text-center">
+            <h2>Want to Create an Event?</h2>
+            <p>
+                Craft your dream event effortlessly with our user-friendly platform. From invitations to RSVPs, we've got you covered. Create, celebrate, and let us handle the details!
+            </p>
+            <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='{% url 'account_signup' %}'">
                 Sign Up Now
             </button>
         </div>
+          {% endif %}
     </div>
 </div>
 {% endblock %}

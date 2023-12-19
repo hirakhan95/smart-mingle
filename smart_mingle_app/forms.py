@@ -1,14 +1,6 @@
 from allauth.account.forms import SignupForm
 from django import forms
 
-from .models import Event
-
-
-class EventForm(forms.ModelForm):
-    class Meta:
-        model = Event
-        fields = ['title', 'description', 'date', 'venue']
-
 
 class CustomSignupForm(SignupForm):
     first_name = forms.CharField(max_length=30, label='First Name')
