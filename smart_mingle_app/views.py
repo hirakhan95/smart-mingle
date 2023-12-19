@@ -1,8 +1,8 @@
 from cloudinary.uploader import upload
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
-from .models import ExtraDetails, Contact
+
+from .models import ExtraDetails, Contact, Event
 
 
 @require_http_methods(["GET", "POST"])
@@ -20,7 +20,8 @@ def contact(request):
 @require_http_methods(["POST"])
 def contact_success(request):
     if request.method == 'POST':
-        contact_message = Contact(name=request.POST['name'], email=request.POST['email'], phone_number=request.POST['phonenum'],
+        contact_message = Contact(name=request.POST['name'], email=request.POST['email'],
+                                  phone_number=request.POST['phonenum'],
                                   description=request.POST['description'])
 
         contact_message.save()
@@ -35,7 +36,20 @@ def event(request):
 @require_http_methods(["GET", "POST"])
 def create_event(request):
     if request.method == 'POST':
+        event = Event(title=request.POST['title'],
+                      img_url=request.POST['image'],
+                      description=request.POST['event_description'],
+                      location=request.POST['location'],
+                      category=request.POST['category'],
+                      start_time=request.POST['date'],
+                      updated_at=request.POST['time'],
+                      )
+
+        event.save()
+
         print(request.POST)
+
+
     return render(request, 'create_event.html')
 
 
@@ -53,7 +67,6 @@ def signup(request):
     return render(request, 'signup.html')
 
 
-@login_required
 @require_http_methods(["GET", "POST"])
 def user(request):
     if request.method == 'POST':
@@ -107,7 +120,6 @@ def user(request):
     return render(request, 'user.html', context=context)
 
 
-@login_required
 @require_http_methods(["GET"])
 def user_edit(request):
     user = request.user
