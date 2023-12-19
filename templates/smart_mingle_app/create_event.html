@@ -28,11 +28,11 @@
             />
         </div>
         <div class="col-sm-12 col-lg-6">
-            <form id="create_event" method="post" action="create_event">
+            <form id="create_event" method="post" action="event_success" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="mb-3">
                     <label for="title" class="form-label">Event Title</label>
-                    <input type="text" class="form-control" id="title" name="title"/>
+                    <input type="text" class="form-control" id="title" name="title" required/>
                 </div>
 
                 <div class="mb-3">
@@ -46,7 +46,7 @@
                     />
                     <br/>
                     <br/>
-                    <input class="btn btn-primary" type="file" name="image" pattern="([^\s]+(\.(?i)(jpg|png|jpeg))$)" id="image"/>
+                    <input class="btn btn-primary" type="file" name="image" pattern="([^\s]+(\.(?i)(jpg|png|jpeg))$)" id="image" required/>
                 </div>
 
                 <div class="mb-3">
@@ -56,12 +56,12 @@
 
                 <div class="mb-3">
                     <label for="location" class="form-label">Location</label>
-                    <input type="text" class="form-control" id="location" name="location"/>
+                    <input type="text" class="form-control" id="location" name="location" required/>
                 </div>
 
                 <div class="mb-3">
                     <label for="category" class="form-label">Category</label>
-                    <select id="category" name="category" class="form-select">
+                    <select id="category" name="category" class="form-select" required>
                         <option selected>Choose...</option>
                         <option>Corporate</option>
                         <option>Exhibition</option>
@@ -77,9 +77,9 @@
                     <label class="form-label">Select Date and Time:</label>
                     <div class="form-group">
                         <div class="datetimepicker">
-                            <input type="date" name="date" id="date"/>
+                            <input type="date" name="date" id="date" required/>
                             <span></span>
-                            <input type="time" name="time" id="time"/>
+                            <input type="time" name="time" id="time" required/>
                         </div>
                     </div>
                 </div>
