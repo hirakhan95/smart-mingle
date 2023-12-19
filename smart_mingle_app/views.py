@@ -1,4 +1,5 @@
 from cloudinary.uploader import upload
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
 
@@ -28,29 +29,43 @@ def contact_success(request):
     return render(request, 'contact_success.html')
 
 
+@login_required
 @require_http_methods(["GET"])
-def event(request):
-    return render(request, 'event.html')
-
-
-@require_http_methods(["GET", "POST"])
 def create_event(request):
+    return render(request, 'create_event.html')
+
+
+@login_required
+@require_http_methods(["POST"])
+def event_success(request):
     if request.method == 'POST':
-        event = Event(title=request.POST['title'],
-                      img_url=request.POST['image'],
-                      description=request.POST['event_description'],
-                      location=request.POST['location'],
-                      category=request.POST['category'],
-                      start_time=request.POST['date'],
-                      updated_at=request.POST['time'],
-                      )
+        if 'image' in request.FILES:
+            image = request.FILES['image']
+            upload_result = upload(image)
+            image_url = upload_result.get('url')
+        else:
+            image_url = None
+
+        event = Event(
+            organizer=request.user,
+            title=request.POST['title'],
+            img_url=image_url,
+            description=request.POST['event_description'],
+            location=request.POST['location'],
+            category=request.POST['category'],
+            start_time=request.POST['date'],
+            updated_at=request.POST['time'],
+        )
 
         event.save()
 
         print(request.POST)
+    return render(request, 'event_success.html')
 
 
-    return render(request, 'create_event.html')
+@require_http_methods(["GET"])
+def event(request):
+    return render(request, 'event.html')
 
 
 @require_http_methods(["GET", "POST"])
@@ -67,6 +82,7 @@ def signup(request):
     return render(request, 'signup.html')
 
 
+@login_required
 @require_http_methods(["GET", "POST"])
 def user(request):
     if request.method == 'POST':
