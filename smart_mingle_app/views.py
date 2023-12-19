@@ -64,8 +64,13 @@ def event_success(request):
 
 
 @require_http_methods(["GET"])
-def event(request):
+def event(request, id):
+    print(id)
     return render(request, 'event.html')
+
+
+def search(request):
+    return render(request, 'search.html')
 
 
 @require_http_methods(["GET", "POST"])
