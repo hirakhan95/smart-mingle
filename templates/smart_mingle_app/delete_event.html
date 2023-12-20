@@ -2,7 +2,6 @@
 
 {% load static %}
 
-
 {% block title %}Delete シ - Smart Mingle Events{% endblock %}
 
 {% block content %}
@@ -15,10 +14,11 @@
                 Smart Mingle - Are you sure you want to delete this event?
             </h3>
 
-            <button type="submit" class="btn btn-primary" onclick="window.location.href='{% url 'app:user' %}'">Yes</button>
-            <button type="submit" class="btn btn-primary" onclick="window.location.href='{% url 'app:home' %}'">Go back to Home</button>
-
-
+            <button type="submit" class="btn btn-primary" onclick="window.location.href='{% url 'app:user' %}'">Yes
+            </button>
+            <button type="submit" class="btn btn-primary" onclick="window.location.href='{% url 'app:home' %}'">Go back
+                to Home
+            </button>
 
         </div>
 
@@ -27,4 +27,5 @@
         </div>
     </div>
 </div>
+
 {% endblock %}
