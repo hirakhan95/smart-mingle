@@ -64,9 +64,15 @@ def event_success(request):
 
 
 @require_http_methods(["GET"])
-def event(request, id):
-    print(id)
-    return render(request, 'event.html')
+def event(request, slug):
+    event = Event.objects.filter(slug=slug).first()
+    suggested_events = Event.objects.order_by('?')[:9]
+    context = {
+        'event': event,
+        'suggested_events_focus': suggested_events[:3],
+        'suggested_events_unfocus': suggested_events[3::]
+    }
+    return render(request, 'event.html', context=context)
 
 
 def search(request):

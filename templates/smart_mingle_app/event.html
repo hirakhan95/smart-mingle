@@ -9,22 +9,19 @@
 <div class="container mt-3">
     <div class="row">
         <div class="event-title col-12 mb-4 mt-4">
-            <h3>Event Title Main</h3>
+            <h3>{{event.title}}</h3>
         </div>
     </div>
     <div class="row align-items-center position-relative mb-3">
         <div class="col-lg-8 col-sm-12 mb-4">
-            <img src="/static/images/event5.jpeg" class="card-img-top mb-4" alt="..."/>
+            <img src="{{event.img_url}}" class="card-img-top mb-4" alt="..."/>
             <div class="card">
                 <div class="card-body">
                     <h4 class="mb-4 card-title card-strong">Details</h4>
                     <p class="card-text">
-                        This is a wider card with supporting text below as a natural
-                        lead-in to additional content. This content is a little bit
-                        longer.
-                    </p>
-                    <p class="card-text">
-                        <small class="text-body-secondary">Location</small>
+                        {% autoescape off %}
+                        {{event.description}}
+                        {% endautoescape %}
                     </p>
                 </div>
             </div>
@@ -33,10 +30,11 @@
             <div class="card">
                 <div class="card-body event-features">
                     <h4 class="mb-4 card-title card-strong">Features</h4>
-                    <p class="card-text">Hosted By: <strong>Jone Doe</strong></p>
-                    <p class="card-text">Location: Alexander Platz, Berlin</p>
-                    <p class="card-text">Time: 19:00</p>
-                    <p class="card-text">Type: Party</p>
+                    <p class="card-text">Hosted By: <strong>{{event.organizer.first_name}}
+                        {{event.organizer.last_name}}</strong></p>
+                    <p class="card-text">Location: {{event.location}}</p>
+                    <p class="card-text">Date Time: {{event.start_time}}</p>
+                    <p class="card-text">Type: {{event.category}}</p>
                 </div>
             </div>
         </div>

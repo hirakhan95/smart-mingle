@@ -15,7 +15,7 @@ urlpatterns = [
     path('search', views.search, name='search'),
     path('login', views.login, name='login'),
     path('signup', views.signup, name='signup'),
-    path('event/<id>/', views.event, name='event'),
+    path('event/<slug>/', views.event, name='event'),
     path('user', views.user, name='user'),
     path('user_edit', views.user_edit, name='user_edit')
 ]
