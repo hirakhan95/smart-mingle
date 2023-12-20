@@ -53,55 +53,28 @@
                     <div
                             class="card-wrapper container-sm d-flex justify-content-around"
                     >
-                        <div class="card h-100">
+                        {% for e in suggested_events_focus %}
+                        <div onclick="window.location.href='{% url 'app:event' slug=e.slug %}'" class="card h-100">
                             <img
-                                    src="/static/images/event2.jpeg"
+                                    src="{{e.img_url}}" width="333" height="208"
                                     class="card-img-top card-event-image"
-                                    alt="..."
                             />
                             <div class="card-body">
-                                <h5 class="card-title card-strong">Event Title 1</h5>
-                                <span class="tag badge favourite-icon bg-light">
-                        <i class="icon ion-heart"></i
-                        ></span>
-                                <span class="tag badge bg-new card-badge">New</span>
-                                <span class="tag badge bg-type card-badge">Sports</span>
-                                <span class="tag badge bg-danger card-badge">Berlin</span>
-                            </div>
-                        </div>
+                                <h5 class="card-title card-strong">{{e.title}}</h5>
 
-                        <div class="card h-100">
-                            <img
-                                    src="/static/images/event6.jpeg"
-                                    class="card-img-top card-event-image"
-                                    alt="..."
-                            />
-                            <div class="card-body">
-                                <h5 class="card-title card-strong">Event Title 2</h5>
+
                                 <span class="tag badge favourite-icon bg-light"
                                 ><i class="icon ion-heart"></i
                                 ></span>
-                                <span class="tag badge bg-new">New</span>
-                                <span class="tag badge bg-type">Sports</span>
-                                <span class="tag badge bg-danger">Berlin</span>
+
+
+                                <span class="tag badge bg-type mb-1">{{e.category}}</span>
+                                <span class="tag badge bg-new mb-1">{{e.location}}</span>
+                                <br/>
+                                <span class="tag badge bg-danger mb-1">{{e.start_time}}</span>
                             </div>
                         </div>
-                        <div class="card h-100">
-                            <img
-                                    src="/static/images/event7.jpeg"
-                                    class="card-img-top card-event-image"
-                                    alt="..."
-                            />
-                            <div class="card-body">
-                                <h5 class="card-title card-strong">Event Title 3</h5>
-                                <span class="tag badge favourite-icon bg-light"
-                                ><i class="icon ion-heart"></i
-                                ></span>
-                                <span class="tag badge bg-new">New</span>
-                                <span class="tag badge bg-type">Sports</span>
-                                <span class="tag badge bg-danger">Berlin</span>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
 
@@ -109,110 +82,57 @@
                     <div
                             class="card-wrapper container-sm d-flex justify-content-around"
                     >
-                        <div class="card h-100">
+                        {% for e in suggested_events_unfocus %}
+                        <div onclick="window.location.href='{% url 'app:event' slug=e.slug %}'" class="card h-100">
                             <img
-                                    src="/static/images/event1.jpeg"
+                                    src="{{e.img_url}}" width="333" height="208"
                                     class="card-img-top card-event-image"
-                                    alt="..."
                             />
                             <div class="card-body">
-                                <h5 class="card-title card-strong">Event Title 4</h5>
-                                <span class="tag badge favourite-icon bg-light"
-                                ><i class="icon ion-heart"></i
-                                ></span>
-                                <span class="tag badge bg-new card-badge">New</span>
-                                <span class="tag badge bg-type card-badge">Sports</span>
-                                <span class="tag badge bg-danger card-badge">Berlin</span>
-                            </div>
-                        </div>
+                                <h5 class="card-title card-strong">{{e.title}}</h5>
 
-                        <div class="card h-100">
-                            <img
-                                    src="/static/images/event6.jpeg"
-                                    class="card-img-top card-event-image"
-                                    alt="..."
-                            />
-                            <div class="card-body">
-                                <h5 class="card-title card-strong">Event Title 5</h5>
+
                                 <span class="tag badge favourite-icon bg-light"
                                 ><i class="icon ion-heart"></i
                                 ></span>
-                                <span class="tag badge bg-new">New</span>
-                                <span class="tag badge bg-type">Sports</span>
-                                <span class="tag badge bg-danger">Berlin</span>
+
+
+                                <span class="tag badge bg-type mb-1">{{e.category}}</span>
+                                <span class="tag badge bg-new mb-1">{{e.location}}</span>
+                                <br/>
+                                <span class="tag badge bg-danger mb-1">{{e.start_time}}</span>
                             </div>
                         </div>
-                        <div class="card h-100">
-                            <img
-                                    src="/static/images/event3.jpeg"
-                                    class="card-img-top card-event-image"
-                                    alt="..."
-                            />
-                            <div class="card-body">
-                                <h5 class="card-title card-strong">Event Title 6</h5>
-                                <span class="tag badge favourite-icon bg-light"
-                                ><i class="icon ion-heart"></i
-                                ></span>
-                                <span class="tag badge bg-new">New</span>
-                                <span class="tag badge bg-type">Sports</span>
-                                <span class="tag badge bg-danger">Berlin</span>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div
                             class="card-wrapper container-sm d-flex justify-content-around"
                     >
-                        <div class="card h-100">
+                        {% for e in suggested_events_unfocus2 %}
+                        <!-- slug is also defined for an event -->
+                        <div onclick="window.location.href='{% url 'app:event' slug=e.slug %}'" class="card h-100">
                             <img
-                                    src="/static/images/event4.jpeg"
+                                    src="{{e.img_url}}" width="333" height="208"
                                     class="card-img-top card-event-image"
-                                    alt="..."
                             />
                             <div class="card-body">
-                                <h5 class="card-title card-strong">Event Title 7</h5>
-                                <span class="tag badge favourite-icon bg-light"
-                                ><i class="icon ion-heart"></i
-                                ></span>
-                                <span class="tag badge bg-new">New</span>
-                                <span class="tag badge bg-type">Sports</span>
-                                <span class="tag badge bg-danger">Berlin</span>
-                            </div>
-                        </div>
+                                <h5 class="card-title card-strong">{{e.title}}</h5>
 
-                        <div class="card h-100">
-                            <img
-                                    src="/static/images/event7.jpeg"
-                                    class="card-img-top card-event-image"
-                                    alt="..."
-                            />
-                            <div class="card-body">
-                                <h5 class="card-title card-strong">Event Title 8</h5>
+
                                 <span class="tag badge favourite-icon bg-light"
                                 ><i class="icon ion-heart"></i
                                 ></span>
-                                <span class="tag badge bg-new">New</span>
-                                <span class="tag badge bg-type">Sports</span>
-                                <span class="tag badge bg-danger">Berlin</span>
+
+
+                                <span class="tag badge bg-type mb-1">{{e.category}}</span>
+                                <span class="tag badge bg-new mb-1">{{e.location}}</span>
+                                <br/>
+                                <span class="tag badge bg-danger mb-1">{{e.start_time}}</span>
                             </div>
                         </div>
-                        <div class="card h-100">
-                            <img
-                                    src="/static/images/event5.jpeg"
-                                    class="card-img-top card-event-image"
-                                    alt="..."
-                            />
-                            <div class="card-body">
-                                <h5 class="card-title card-strong">Event Title 9</h5>
-                                <span class="tag badge favourite-icon bg-light"
-                                ><i class="icon ion-heart"></i
-                                ></span>
-                                <span class="tag badge bg-new">New</span>
-                                <span class="tag badge bg-type">Sports</span>
-                                <span class="tag badge bg-danger">Berlin</span>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

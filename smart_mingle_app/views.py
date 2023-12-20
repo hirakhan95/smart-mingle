@@ -70,7 +70,8 @@ def event(request, slug):
     context = {
         'event': event,
         'suggested_events_focus': suggested_events[:3],
-        'suggested_events_unfocus': suggested_events[3::]
+        'suggested_events_unfocus': suggested_events[3:6],
+        'suggested_events_unfocus2': suggested_events[6::]
     }
     return render(request, 'event.html', context=context)
 
