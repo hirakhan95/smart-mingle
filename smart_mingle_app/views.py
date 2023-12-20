@@ -1,5 +1,6 @@
 from cloudinary.uploader import upload
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
 
@@ -77,7 +78,11 @@ def event(request, slug):
 
 
 def search(request):
-    return render(request, 'search.html')
+    events = Event.objects.filter(Q(title__icontains=request.GET['a']) | Q(location__icontains=request.GET['a']) | Q(
+        category__icontains=request.GET['a']))
+    return render(request, 'search.html', context={
+        'events': events
+    })
 
 
 @require_http_methods(["GET", "POST"])
@@ -95,7 +100,7 @@ def signup(request):
 
 
 def delete_event(request):
-    return render(request, 'delete_event.html', context= {
+    return render(request, 'delete_event.html', context={
         'event_id': request.POST['event_id']
     })
 
@@ -153,7 +158,6 @@ def user(request):
     # FOR ALL EVENTS RELATED TO USER
 
     events = Event.objects.filter(organizer=request.user).values()
-
 
     context = {
         'email': request.user.email,
