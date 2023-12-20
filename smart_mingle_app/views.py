@@ -1,3 +1,5 @@
+import datetime
+
 from cloudinary.uploader import upload
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -5,6 +7,8 @@ from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
 
 from .models import ExtraDetails, Contact, Event
+
+EVENT_TYPES = ['Corporate', 'Exhibition', 'Sport', 'Charity', 'Workshop', 'Virtual', 'Leisure']
 
 
 @require_http_methods(["GET", "POST"])
@@ -40,7 +44,9 @@ def contact_success(request):
 @login_required
 @require_http_methods(["GET"])
 def create_event(request):
-    return render(request, 'create_event.html')
+    return render(request, 'create_event.html', context={
+        'categories': EVENT_TYPES
+    })
 
 
 @login_required
@@ -54,6 +60,7 @@ def event_success(request):
         else:
             image_url = None
 
+        datetime_str = f"{request.POST['date']} {request.POST['time']}"
         event = Event(
             organizer=request.user,
             title=request.POST['title'],
@@ -61,8 +68,8 @@ def event_success(request):
             description=request.POST['event_description'],
             location=request.POST['location'],
             category=request.POST['category'],
-            start_time=request.POST['date'],
-            updated_at=request.POST['time'],
+            start_time=datetime.strptime(datetime_str, "%Y-%m-%d %H:%M"),
+            updated_at=datetime.datetime.now()
         )
 
         event.save()
@@ -106,14 +113,29 @@ def signup(request):
     return render(request, 'signup.html')
 
 
+@login_required
+@require_http_methods(["POST"])
 def delete_event(request):
     return render(request, 'delete_event.html', context={
         'event_id': request.POST['event_id']
     })
 
 
+@login_required
+@require_http_methods(["POST"])
 def update_event(request):
-    return render(request, 'update_event.html')
+    event = Event.objects.filter(id=request.POST['event_id']).first()
+
+    date_str = event.start_time.strftime('%Y-%m-%d')
+    time_str = event.start_time.strftime('%H:%M')
+
+    context = {
+        'event': event,
+        'categories': EVENT_TYPES,
+        'date_str': date_str,
+        'time_str': time_str
+    }
+    return render(request, 'update_event.html', context=context)
 
 
 @login_required
