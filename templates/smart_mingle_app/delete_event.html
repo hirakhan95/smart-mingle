@@ -14,11 +14,16 @@
                 Smart Mingle - Are you sure you want to delete this event?
             </h3>
 
-            <button type="submit" class="btn btn-primary" onclick="window.location.href='{% url 'app:user' %}'">Yes
-            </button>
-            <button type="submit" class="btn btn-primary" onclick="window.location.href='{% url 'app:home' %}'">Go back
-                to Home
-            </button>
+            <form action="{% url 'app:user' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="event_id" value="{{event_id}}">
+                <input type="hidden" name="event_type" value="delete_event">
+                <input type="submit" class="btn btn-secondary" name="delete" value="Yes"/>
+                <button type="button" class="btn btn-primary" onclick="window.location.href='{% url 'app:home' %}'">Go back
+                    to Home
+                </button>
+            </form>
+
 
         </div>
 

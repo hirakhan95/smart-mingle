@@ -95,7 +95,9 @@ def signup(request):
 
 
 def delete_event(request):
-    return render(request, 'delete_event.html')
+    return render(request, 'delete_event.html', context= {
+        'event_id': request.POST['event_id']
+    })
 
 
 def update_event(request):
@@ -105,7 +107,9 @@ def update_event(request):
 @login_required
 @require_http_methods(["GET", "POST"])
 def user(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and 'event_type' in request.POST and request.POST['event_type'] == 'delete_event':
+        Event.objects.filter(id=request.POST['event_id']).first().delete()
+    elif request.method == 'POST':
         if 'file' in request.FILES:
             image = request.FILES['file']
             upload_result = upload(image,
