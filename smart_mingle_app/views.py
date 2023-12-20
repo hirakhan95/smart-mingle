@@ -87,6 +87,14 @@ def signup(request):
     return render(request, 'signup.html')
 
 
+def delete_event(request):
+    return render(request, 'delete_event.html')
+
+
+def update_event(request):
+    return render(request, 'update_event.html')
+
+
 @login_required
 @require_http_methods(["GET", "POST"])
 def user(request):
