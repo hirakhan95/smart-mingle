@@ -79,7 +79,8 @@
                     <div class="col-md-8 mb-3">
                         <div class="card">
                             <div class="card mb-3">
-                                <div class="row g-0">
+                                <div onclick="window.location.href='{% url 'app:event' slug=event.slug %}'"
+                                     class="row g-0">
                                     <div class="col-md-4">
                                         <img src={{event.img_url}} class="img-fluid rounded-start" alt="..."/>
                                     </div>
@@ -104,12 +105,19 @@
 
 
                 <div class="col-md-4 mb-3">
-                    <input type="button" class="profile-edit-btn" name="update" value="Edit Event"
-                           onclick="window.location.href='{% url 'app:update_event' %}'"/>
-                    <br> <br>
 
-                    <input type="button" class="profile-edit-btn" name="delete" value="Delete Event"
-                           onclick="window.location.href='{% url 'app:delete_event' %}'"/>
+                    <form action="{% url 'app:update_event' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="event_id" value="{{event.id}}">
+                        <input type="submit" class="profile-edit-btn" name="delete" value="Edit Event"/>
+                    </form>
+                    <br>
+
+                    <form action="{% url 'app:delete_event' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="event_id" value="{{event.id}}">
+                        <input type="submit" class="profile-edit-btn" name="delete" value="Delete Event"/>
+                    </form>
                 </div>
             </div>
 
