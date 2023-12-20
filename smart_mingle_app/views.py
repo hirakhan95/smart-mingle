@@ -139,12 +139,18 @@ def user(request):
         image_url = extra_details.display_pic
         phone_num = extra_details.phone_num
 
+    # FOR ALL EVENTS RELATED TO USER
+
+    events = Event.objects.filter(organizer=request.user).values()
+
+
     context = {
         'email': request.user.email,
         'first_name': request.user.first_name,
         'last_name': request.user.last_name,
         'phonenum': phone_num,
-        'profilepic': image_url
+        'profilepic': image_url,
+        'events': events
     }
     return render(request, 'user.html', context=context)
 

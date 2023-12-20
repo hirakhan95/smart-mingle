@@ -64,47 +64,63 @@
     </form>
 </div>
 
-
+<!--- Events --->
+{% if events %}
 
 <div class="container mt-3 emp-profile">
     <div class="row">
-    <div class="col-md-4">
-        <h3>Your Events</h3>
-    </div>
-    <div class="col-md-5">
-        <div class="col-md-8 mb-3">
-            <div class="card">
-              <div class="card mb-3">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="static/images/event2.jpeg" class="img-fluid rounded-start" alt="..." />
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">
-                        This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a
-                        little bit longer.
-                      </p>
-                      <p class="card-text">
-                        <small class="text-muted"
-                          >Last updated 3 mins ago</small
-                        >
-                      </p>
+        <div class="col-lg-4 col-md-12">
+            <h3>Your Events</h3>
+        </div>
+        <div class="col-lg-8 col-md-12">
+            {% for event in events %}
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="col-md-8 mb-3">
+                        <div class="card">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src={{event.img_url}} class="img-fluid rounded-start" alt="..."/>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ event.title }}</h5>
+                                            {% autoescape off %}
+                                            {{event.description | truncatechars:150}}
+                                            {% endautoescape %}
+                                            <p class="card-text">
+                                                <small class="text-muted"
+                                                >{{event.updated_at}}</small
+                                                >
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-    </div>
-        <div class="col-md-3">
-                <input type="button" class="profile-edit-btn" name="update" value="Edit Event" onclick="window.location.href='{% url 'app:update_event' %}'"/>
-            <br> <br>
 
-            <input type="button" class="profile-edit-btn" name="delete" value="Delete Event" onclick="window.location.href='{% url 'app:delete_event' %}'"/>
+
+                <div class="col-md-4 mb-3">
+                    <input type="button" class="profile-edit-btn" name="update" value="Edit Event"
+                           onclick="window.location.href='{% url 'app:update_event' %}'"/>
+                    <br> <br>
+
+                    <input type="button" class="profile-edit-btn" name="delete" value="Delete Event"
+                           onclick="window.location.href='{% url 'app:delete_event' %}'"/>
+                </div>
             </div>
+
+
+            {% endfor %}
+        </div>
     </div>
+
+</div>
+
+
+{% endif %}
 
 {% endblock %}
