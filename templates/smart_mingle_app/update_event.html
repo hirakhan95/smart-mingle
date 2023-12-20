@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Update Event シ - Smart Mingle Events{% endblock %}
+
+{% block content %}
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-sm-12 col-lg-6"></div>
+        <div class="col-sm-12 col-lg-6">
+            <h2>Update Event</h2>
+            <p>
+                "Smart Mingle: Where Events Spark and Connections Flourish – Your
+                Event, Your Way!"
+            </p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row position-relative">
+        <div class="col-sm-12 col-lg-6">
+
+            <img
+                    src="static/images/create-event.png"
+                    alt="hero-image"
+                    class="img-fluid"
+            />
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <form id="create_event" method="post" action="event_success" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="title" class="form-label">Event Title</label>
+                    <input type="text" class="form-control" id="title" name="title" required/>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+
+                    <br/>
+                    <img
+                            id="uploaded-image"
+                            src="https://placehold.co/400x250/C8C8C8/white?text=Upload+An+Image"
+                            alt="your image"
+                    />
+                    <br/>
+                    <br/>
+                    <input accept=".avif,.jpg,.jpeg,.png" class="btn btn-primary" type="file" name="image" id="image" required/>
+                </div>
+
+                <div class="mb-3">
+                    <label for="event_description" class="form-label">Description</label>
+                    <textarea id="event_description" name="event_description"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" class="form-control" id="location" name="location" required/>
+                </div>
+
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select id="category" name="category" class="form-select" required>
+                        <option selected>Choose...</option>
+                        <option>Corporate</option>
+                        <option>Exhibition</option>
+                        <option>Sport</option>
+                        <option>Charity</option>
+                        <option>Workshop</option>
+                        <option>Virtual</option>
+                        <option>Leisure</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Select Date and Time:</label>
+                    <div class="form-group">
+                        <div class="datetimepicker">
+                            <input type="date" name="date" id="date" required/>
+                            <span></span>
+                            <input type="time" name="time" id="time" required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="float-end">
+                    <button type="submit" class="btn btn-primary">
+                        Create Event
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
