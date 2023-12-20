@@ -11,7 +11,14 @@ from .models import ExtraDetails, Contact, Event
 def home(request):
     if request.method == 'POST':
         print(request.POST)
-    return render(request, 'home.html')
+    events = Event.objects.order_by('?')[:12]
+
+    return render(request, 'home.html', context={
+        'event_focus': events[:3],
+        'event_unfocus': events[3:6],
+        'event_unfocus2': events[6:9],
+        'event_unfocus3': events[9::]
+    })
 
 
 @require_http_methods(["GET"])
