@@ -1,11 +1,10 @@
-import datetime
 
 from cloudinary.uploader import upload
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
-
+from datetime import datetime
 from .models import ExtraDetails, Contact, Event
 
 EVENT_TYPES = ['Corporate', 'Exhibition', 'Sport', 'Charity', 'Workshop', 'Virtual', 'Leisure']
@@ -69,7 +68,7 @@ def event_success(request):
             location=request.POST['location'],
             category=request.POST['category'],
             start_time=datetime.strptime(datetime_str, "%Y-%m-%d %H:%M"),
-            updated_at=datetime.datetime.now()
+            updated_at=datetime.now()
         )
 
         event.save()
