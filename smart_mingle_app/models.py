@@ -39,16 +39,16 @@ class Event(models.Model):
         super().save(*args, **kwargs)
 
 
-class Favourite(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    event = models.ForeignKey(Event, on_delete=models.CASCADE)
-
-
-class Comments(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    comment = models.CharField(max_length=100)
-    datetime = models.DateTimeField()
-
-    def __str__(self):
-        return self.comment
+# class Favourite(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     event = models.ForeignKey(Event, on_delete=models.CASCADE)
+#
+#
+# class Comments(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     event = models.ForeignKey(Event, on_delete=models.CASCADE)
+#     comment = models.CharField(max_length=100)
+#     datetime = models.DateTimeField()
+#
+#     def __str__(self):
+#         return self.comment
