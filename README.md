@@ -1,7 +1,7 @@
 # Smart Mingle
 
 Smart Mingle is an application designed to revolutionize event management. It streamlines the process of organizing events by offering effective planning. Aimed at simplifying the complexities of event coordination, Smart Mingle caters to various event types, from intimate gatherings to large-scale functions. Its user-friendly interface make it an ideal solution for both professional event planners and individuals seeking a hassle-free event management experience.
-![SwiftGo responsiveness.png]()
+![]()
 
 [View Smart Mingle Platform now](https://smart-mingle-00648c22d190.herokuapp.com/)
 
