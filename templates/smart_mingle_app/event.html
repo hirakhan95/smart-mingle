@@ -54,7 +54,9 @@
                             class="card-wrapper container-sm d-flex justify-content-around"
                     >
                         {% for e in suggested_events_focus %}
-                        <div onclick="window.location.href='{% url 'app:event' slug=e.slug %}'" class="card h-100">
+                        <div onclick="window.location.href='{% url 'app:event' slug=e.slug %}'"
+                             style="cursor: pointer;"
+                             class="card h-100">
                             <img
                                     src="{{e.img_url}}" width="333" height="208"
                                     class="card-img-top card-event-image"
@@ -83,7 +85,9 @@
                             class="card-wrapper container-sm d-flex justify-content-around"
                     >
                         {% for e in suggested_events_unfocus %}
-                        <div onclick="window.location.href='{% url 'app:event' slug=e.slug %}'" class="card h-100">
+                        <div onclick="window.location.href='{% url 'app:event' slug=e.slug %}'"
+                             style="cursor: pointer;"
+                             class="card h-100">
                             <img
                                     src="{{e.img_url}}" width="333" height="208"
                                     class="card-img-top card-event-image"
@@ -112,7 +116,9 @@
                     >
                         {% for e in suggested_events_unfocus2 %}
                         <!-- slug is also defined for an event -->
-                        <div onclick="window.location.href='{% url 'app:event' slug=e.slug %}'" class="card h-100">
+                        <div onclick="window.location.href='{% url 'app:event' slug=e.slug %}'"
+                             style="cursor: pointer;"
+                             class="card h-100">
                             <img
                                     src="{{e.img_url}}" width="333" height="208"
                                     class="card-img-top card-event-image"

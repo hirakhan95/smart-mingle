@@ -15,7 +15,10 @@
             </div>
         </div>
         {% for event in events %}
-        <div onclick="window.location.href='{% url 'app:event' slug=event.slug %}'" class="col-md-8 mb-3">
+        <div onclick="window.location.href='{% url 'app:event' slug=event.slug %}'"
+             style="cursor: pointer;"
+             class="col-md-8 mb-3">
+
             <div class="card">
                 <div class="card mb-3">
                     <div class="row g-0">
@@ -49,5 +52,6 @@
         {% endfor %}
     </div>
 </div>
+
 
 {% endblock %}

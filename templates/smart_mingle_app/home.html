@@ -34,7 +34,7 @@
         <div class="container mt-3">
             <div class="row align-items-center">
                 <div class="mb-3">
-                    <h2>Incoming Events</h2>
+                    <h2>Upcoming Events</h2>
                 </div>
                 <div
                         id="carouselExampleControls"
@@ -48,6 +48,7 @@
                             >
                                 {% for e in event_focus %}
                                 <div onclick="window.location.href='{% url 'app:event' slug=e.slug %}'"
+                                     style="cursor: pointer;"
                                      class="card h-100">
                                     <img
                                             src="{{e.img_url}}" width="333" height="208"
@@ -78,7 +79,8 @@
                             >
                                 {% for e in event_unfocus %}
                                 <div onclick="window.location.href='{% url 'app:event' slug=e.slug %}'"
-                                     class="card h-100">
+                                     class="card h-100"
+                                     style="cursor: pointer;">
                                     <img
                                             src="{{e.img_url}}" width="333" height="208"
                                             class="card-img-top card-event-image"
@@ -108,6 +110,7 @@
                                 {% for e in event_unfocus2 %}
                                 <!-- slug is also defined for an event -->
                                 <div onclick="window.location.href='{% url 'app:event' slug=e.slug %}'"
+                                     style="cursor: pointer;"
                                      class="card h-100">
                                     <img
                                             src="{{e.img_url}}" width="333" height="208"
@@ -216,4 +219,5 @@
                 {% endif %}
             </div>
         </div>
+
         {% endblock %}
