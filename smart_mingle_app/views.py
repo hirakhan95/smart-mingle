@@ -12,7 +12,8 @@ from django.views.decorators.http import require_http_methods
 
 from .models import ExtraDetails, Contact, Event
 
-EVENT_TYPES = ['Corporate', 'Exhibition', 'Sport', 'Charity', 'Workshop', 'Virtual', 'Leisure']
+EVENT_TYPES = ['Corporate', 'Exhibition', 'Sport', 'Charity', 'Workshop',
+               'Virtual', 'Leisure']
 
 
 @require_http_methods(["GET"])
@@ -35,7 +36,8 @@ def contact(request):
 @require_http_methods(["POST"])
 def contact_success(request):
     if request.method == 'POST':
-        contact_message = Contact(name=request.POST['name'], email=request.POST['email'],
+        contact_message = Contact(name=request.POST['name'],
+                                  email=request.POST['email'],
                                   phone_number=request.POST['phonenum'],
                                   description=request.POST['description'])
 
@@ -93,8 +95,9 @@ def event(request, slug):
 
 def search(request):
     search_field = request.GET.get('a') or ''
-    events = Event.objects.filter(Q(title__icontains=search_field) | Q(location__icontains=search_field) | Q(
-        category__icontains=search_field))
+    events = Event.objects.filter(Q(title__icontains=search_field)
+                                  | Q(location__icontains=search_field)
+                                  | Q(category__icontains=search_field))
 
     paginator = Paginator(events, 5)
     page_number = request.GET.get('page')
@@ -174,14 +177,20 @@ def update_event(request):
 @login_required
 @require_http_methods(["GET", "POST"])
 def user(request):
-    if request.method == 'POST' and 'event_type' in request.POST and request.POST['event_type'] == 'delete_event':
+    if request.method == 'POST' and 'event_type' in request.POST \
+            and request.POST['event_type'] == 'delete_event':
         get_object_or_404(Event, id=request.POST['event_id']).delete()
     elif request.method == 'POST':
         if 'file' in request.FILES:
             image = request.FILES['file']
             upload_result = upload(image,
                                    transformation=[
-                                       {'width': 300, 'height': 300, 'gravity': "face", 'crop': "thumb"},
+                                       {
+                                           'width': 300,
+                                           'height': 300,
+                                           'gravity': "face",
+                                           'crop': "thumb"
+                                       },
                                        {'radius': "max"},
                                        {'effect': "sharpen"}
                                    ])
@@ -239,7 +248,7 @@ def user_edit(request):
     image_url = "static/images/user.png"
     phone_num = ''
 
-    if extra_details != None:
+    if extra_details is not None:
         image_url = extra_details.display_pic
         phone_num = extra_details.phone_num
 
