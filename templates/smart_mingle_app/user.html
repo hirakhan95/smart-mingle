@@ -109,15 +109,16 @@
 
                     <form action="{% url 'app:update_event' %}" method="post">
                         {% csrf_token %}
+                        <input type="hidden" name="call_type" value="from_user">
                         <input type="hidden" name="event_id" value="{{event.id}}">
-                        <input type="submit" class="profile-edit-btn" name="delete" value="Edit Event"/>
+                        <input type="submit" class="profile-edit-btn" value="Edit Event"/>
                     </form>
                     <br>
 
                     <form action="{% url 'app:delete_event' %}" method="post">
                         {% csrf_token %}
                         <input type="hidden" name="event_id" value="{{event.id}}">
-                        <input type="submit" class="profile-edit-btn" name="delete" value="Delete Event"/>
+                        <input type="submit" class="profile-edit-btn" value="Delete Event"/>
                     </form>
                 </div>
             </div>

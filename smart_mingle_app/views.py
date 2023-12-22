@@ -4,7 +4,7 @@ from cloudinary.uploader import upload
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.http import require_http_methods
 
 from .models import ExtraDetails, Contact, Event
@@ -125,7 +125,31 @@ def delete_event(request):
 @login_required
 @require_http_methods(["POST"])
 def update_event(request):
-    event = Event.objects.filter(id=request.POST['event_id']).first()
+    error_message = None
+
+    if request.POST['call_type'] == 'from_update':
+        event = Event.objects.filter(id=request.POST['event_id']).first()
+
+        datetime_str = f"{request.POST['date']} {request.POST['time']}"
+        ###
+        event.title = request.POST['title']
+        if 'image' in request.FILES:
+            image = request.FILES['image']
+            upload_result = upload(image)
+            event.img_url = upload_result.get('url')
+
+        event.description = request.POST['event_description']
+        event.location = request.POST['location']
+        event.category = request.POST['category']
+        event.start_time = datetime.strptime(datetime_str, "%Y-%m-%d %H:%M")
+        try:
+            event.save()
+            return redirect('app:event', slug=event.slug)
+        except:
+            error_message= 'Title already exists! Try with another name!'
+
+    event_id=request.POST['event_id']
+    event = Event.objects.filter(id=event_id).first()
 
     date_str = event.start_time.strftime('%Y-%m-%d')
     time_str = event.start_time.strftime('%H:%M')
@@ -134,8 +158,11 @@ def update_event(request):
         'event': event,
         'categories': EVENT_TYPES,
         'date_str': date_str,
-        'time_str': time_str
+        'time_str': time_str,
+        'error_message': error_message,
+        'event_id': event_id
     }
+
     return render(request, 'update_event.html', context=context)
 
 

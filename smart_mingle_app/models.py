@@ -1,6 +1,7 @@
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils import timezone
 
 
 class ExtraDetails(models.Model):
@@ -34,8 +35,8 @@ class Event(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
+        self.slug = slugify(self.title)
+        self.updated_at = timezone.now()
         super().save(*args, **kwargs)
 
 
