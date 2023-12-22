@@ -1,10 +1,12 @@
+from datetime import datetime
 
 from cloudinary.uploader import upload
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.db.models import Q
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
-from datetime import datetime
+
 from .models import ExtraDetails, Contact, Event
 
 EVENT_TYPES = ['Corporate', 'Exhibition', 'Sport', 'Charity', 'Workshop', 'Virtual', 'Leisure']
@@ -91,10 +93,18 @@ def event(request, slug):
 
 
 def search(request):
-    events = Event.objects.filter(Q(title__icontains=request.GET['a']) | Q(location__icontains=request.GET['a']) | Q(
-        category__icontains=request.GET['a']))
+    search_field = request.GET.get('a') or ''
+    events = Event.objects.filter(Q(title__icontains=search_field) | Q(location__icontains=search_field) | Q(
+        category__icontains=search_field))
+
+    paginator = Paginator(events, 5)
+    page_number = request.GET.get('page')
+    events = paginator.get_page(page_number)
+
     return render(request, 'search.html', context={
-        'events': events
+        'events': events,
+        'a': search_field,
+        'page': page_number
     })
 
 

@@ -37,7 +37,6 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DJANGO_ENV") == 'dev'
 
-
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://smart-mingle-00648c22d190.herokuapp.com/',
                  'smart-mingle-00648c22d190.herokuapp.com']
 
@@ -124,9 +123,6 @@ DATABASES = {
         'PORT': os.getenv("DB_PORT"),
     }
 }
-
-# Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
