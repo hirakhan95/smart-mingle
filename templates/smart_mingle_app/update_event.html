@@ -38,7 +38,7 @@
                 <input type="hidden" name="event_id" value="{{event_id}}">
                 <div class="mb-3">
                     <label for="title" class="form-label">Event Title</label>
-                    <input value="{{ event.title }}" type="text" class="form-control" id="title" name="title"/>
+                    <input value="{{ event.title }}" type="text" class="form-control" id="title" name="title">
                 </div>
 
                 <div class="mb-3">
@@ -49,11 +49,11 @@
                             id="uploaded-image"
                             src="{{ event.img_url }}"
                             alt="your image"
-                    />
+                    >
                     <br>
                     <br>
                     <input accept=".avif,.jpg,.jpeg,.png,.webp" class="btn btn-primary" type="file" name="image"
-                           id="image"/>
+                           id="image">
                 </div>
 
                 <div class="mb-3">
@@ -68,7 +68,7 @@
                 <div class="mb-3">
                     <label for="location" class="form-label">Location</label>
                     <input value="{{ event.location }}" type="text" class="form-control" id="location" name="location"
-                    />
+                    >
                 </div>
 
                 <div class="mb-3">
@@ -91,9 +91,9 @@
                     <label class="form-label">Select Date and Time:</label>
                     <div class="form-group">
                         <div class="datetimepicker">
-                            <input type="date" name="date" id="date" value="{{date_str}}"/>
+                            <input type="date" name="date" id="date" value="{{date_str}}">
                             <span></span>
-                            <input type="time" name="time" id="time" value="{{time_str}}"/>
+                            <input type="time" name="time" id="time" value="{{time_str}}">
                         </div>
                     </div>
                 </div>

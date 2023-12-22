@@ -18,7 +18,7 @@
                 {% csrf_token %}
                 <input type="hidden" name="event_id" value="{{event_id}}">
                 <input type="hidden" name="event_type" value="delete_event">
-                <input type="submit" class="btn btn-secondary" name="delete" value="Yes"/>
+                <input type="submit" class="btn btn-secondary" name="delete" value="Yes">
                 <button type="button" class="btn btn-primary" onclick="window.location.href='{% url 'app:home' %}'">Go back
                     to Home
                 </button>
@@ -28,7 +28,7 @@
         </div>
 
         <div class="col-lg-6 col-sm-12">
-            <img src="{%static 'images/logout.png' %}" alt="logout-image" class="img-fluid"/>
+            <img src="{%static 'images/logout.png' %}" alt="logout-image" class="img-fluid">
         </div>
     </div>
 </div>
