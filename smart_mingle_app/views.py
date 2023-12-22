@@ -12,10 +12,8 @@ from .models import ExtraDetails, Contact, Event
 EVENT_TYPES = ['Corporate', 'Exhibition', 'Sport', 'Charity', 'Workshop', 'Virtual', 'Leisure']
 
 
-@require_http_methods(["GET", "POST"])
+@require_http_methods(["GET"])
 def home(request):
-    if request.method == 'POST':
-        print(request.POST)
     events = Event.objects.order_by('?')[:12]
 
     return render(request, 'home.html', context={
@@ -74,8 +72,6 @@ def event_success(request):
         )
 
         event.save()
-
-        print(request.POST)
     return render(request, 'event_success.html')
 
 
@@ -110,15 +106,11 @@ def search(request):
 
 @require_http_methods(["GET", "POST"])
 def login(request):
-    if request.method == 'POST':
-        print(request.POST)
     return render(request, 'login.html')
 
 
 @require_http_methods(["GET", "POST"])
 def signup(request):
-    if request.method == 'POST':
-        print(request.POST)
     return render(request, 'signup.html')
 
 
@@ -183,8 +175,6 @@ def user(request):
         request.user.last_name = request.POST['last_name']
         request.user.save()
 
-        print(extra_details)
-
     image_url = "static/images/user.png"
     phone_num = ''
 
@@ -229,5 +219,4 @@ def user_edit(request):
         'profilepic': image_url
     }
 
-    print('abc')
     return render(request, 'user_edit.html', context=context)
