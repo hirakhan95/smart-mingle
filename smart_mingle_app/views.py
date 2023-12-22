@@ -2,7 +2,9 @@ from datetime import datetime
 
 from cloudinary.uploader import upload
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ValidationError
 from django.core.paginator import Paginator
+from django.db import IntegrityError
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
@@ -128,30 +130,32 @@ def delete_event(request):
 def update_event(request):
     error_message = None
 
-    if request.POST['call_type'] == 'from_update':
-        event = get_object_or_404(Event, id=request.POST['event_id'])
+    if request.POST.get('call_type') == 'from_update':
+        event = get_object_or_404(Event, id=request.POST.get('event_id'))
+        datetime_str = f"{request.POST.get('date')} {request.POST.get('time')}"
 
-        datetime_str = f"{request.POST['date']} {request.POST['time']}"
-        ###
-        event.title = request.POST['title']
+        event.title = request.POST.get('title')
         if 'image' in request.FILES:
             image = request.FILES['image']
-            upload_result = upload(image)
+            upload_result = upload(image)  # Ensure 'upload' is defined
             event.img_url = upload_result.get('url')
 
-        event.description = request.POST['event_description']
-        event.location = request.POST['location']
-        event.category = request.POST['category']
+        event.description = request.POST.get('event_description')
+        event.location = request.POST.get('location')
+        event.category = request.POST.get('category')
         event.start_time = datetime.strptime(datetime_str, "%Y-%m-%d %H:%M")
+
         try:
+            event.full_clean()  # Validates the model
             event.save()
             return redirect('app:event', slug=event.slug)
-        except:
+        except ValidationError as e:
+            error_message = str(e)
+        except IntegrityError:
             error_message = 'Title already exists! Try with another name!'
 
-    event_id = request.POST['event_id']
-    event = get_object_or_404(Event, id=event_id)
-
+    # This part can be removed if you're redirecting after successful save
+    event = get_object_or_404(Event, id=request.POST.get('event_id'))
     date_str = event.start_time.strftime('%Y-%m-%d')
     time_str = event.start_time.strftime('%H:%M')
 
@@ -161,7 +165,7 @@ def update_event(request):
         'date_str': date_str,
         'time_str': time_str,
         'error_message': error_message,
-        'event_id': event_id
+        'event_id': event.id  # Changed from request.POST to event.id
     }
 
     return render(request, 'update_event.html', context=context)
@@ -185,7 +189,7 @@ def user(request):
         else:
             image_url = None
 
-        extra_details = get_object_or_404(ExtraDetails, user=request.user)
+        extra_details = ExtraDetails.objects.filter(user=request.user).first()
         if not extra_details:
             extra_details = ExtraDetails(user=request.user)
 
@@ -206,7 +210,7 @@ def user(request):
     image_url = "static/images/user.png"
     phone_num = ''
 
-    extra_details = get_object_or_404(ExtraDetails, user=request.user)
+    extra_details = ExtraDetails.objects.filter(user=request.user).first()
     if extra_details:
         image_url = extra_details.display_pic
         phone_num = extra_details.phone_num
@@ -230,7 +234,7 @@ def user(request):
 def user_edit(request):
     user = request.user
 
-    extra_details = get_object_or_404(ExtraDetails, user=user)
+    extra_details = ExtraDetails.objects.filter(user=request.user).first()
 
     image_url = "static/images/user.png"
     phone_num = ''
