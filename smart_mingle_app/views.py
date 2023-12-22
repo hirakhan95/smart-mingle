@@ -254,11 +254,11 @@ def user_edit(request):
     return render(request, 'user_edit.html', context=context)
 
 
-@require_http_methods(["GET"])
+@require_http_methods(["GET", "POST"])
 def handler_404(request, *args, **kwargs):
     return render(request, 'error404.html')
 
 
-@require_http_methods(["GET"])
+@require_http_methods(["GET", "POST"])
 def handler_500(request, *args, **kwargs):
     return render(request, 'error500.html')
