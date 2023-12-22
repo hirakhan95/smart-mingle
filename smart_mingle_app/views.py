@@ -256,9 +256,9 @@ def user_edit(request):
 
 @require_http_methods(["GET"])
 def handler_404(request, *args, **kwargs):
-    return render(request, 'contact.html')
+    return render(request, 'error404.html')
 
 
 @require_http_methods(["GET"])
 def handler_500(request, *args, **kwargs):
-    return render(request, 'contact.html')
+    return render(request, 'error500.html')
