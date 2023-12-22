@@ -129,7 +129,7 @@ def update_event(request):
     error_message = None
 
     if request.POST['call_type'] == 'from_update':
-        event = Event.objects.filter(id=request.POST['event_id']).first()
+        event = get_object_or_404(Event, id=request.POST['event_id'])
 
         datetime_str = f"{request.POST['date']} {request.POST['time']}"
         ###
@@ -150,7 +150,7 @@ def update_event(request):
             error_message = 'Title already exists! Try with another name!'
 
     event_id = request.POST['event_id']
-    event = Event.objects.filter(id=event_id).first()
+    event = get_object_or_404(Event, id=event_id)
 
     date_str = event.start_time.strftime('%Y-%m-%d')
     time_str = event.start_time.strftime('%H:%M')
@@ -171,7 +171,7 @@ def update_event(request):
 @require_http_methods(["GET", "POST"])
 def user(request):
     if request.method == 'POST' and 'event_type' in request.POST and request.POST['event_type'] == 'delete_event':
-        Event.objects.filter(id=request.POST['event_id']).first().delete()
+        get_object_or_404(Event, id=request.POST['event_id']).delete()
     elif request.method == 'POST':
         if 'file' in request.FILES:
             image = request.FILES['file']
@@ -185,7 +185,7 @@ def user(request):
         else:
             image_url = None
 
-        extra_details = ExtraDetails.objects.filter(user=request.user).first()
+        extra_details = get_object_or_404(ExtraDetails, user=request.user)
         if not extra_details:
             extra_details = ExtraDetails(user=request.user)
 
@@ -206,7 +206,7 @@ def user(request):
     image_url = "static/images/user.png"
     phone_num = ''
 
-    extra_details = ExtraDetails.objects.filter(user=request.user).first()
+    extra_details = get_object_or_404(ExtraDetails, user=request.user)
     if extra_details:
         image_url = extra_details.display_pic
         phone_num = extra_details.phone_num
@@ -230,7 +230,7 @@ def user(request):
 def user_edit(request):
     user = request.user
 
-    extra_details = ExtraDetails.objects.filter(user=user).first()
+    extra_details = get_object_or_404(ExtraDetails, user=user)
 
     image_url = "static/images/user.png"
     phone_num = ''
