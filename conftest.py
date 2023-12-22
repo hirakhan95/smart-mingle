@@ -18,7 +18,6 @@ def configure_test_database():
     settings.DATABASES['default']['PORT'] = os.environ['TEST_DB_PORT']
 
 
-
 @pytest.fixture
 def create_user(db):
     return User.objects.create_user(username='test_user', password='12345')
