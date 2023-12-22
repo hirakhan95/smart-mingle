@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'smart_mingle_app'
 ]
 
-SITE_ID = 2
+SITE_ID = 3
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
