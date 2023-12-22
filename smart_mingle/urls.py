@@ -23,3 +23,5 @@ urlpatterns = [
     path('', include('smart_mingle_app.urls'))
 ]
 
+handler404 = 'smart_mingle_app.views.handler_404'
+handler500 = 'smart_mingle_app.views.handler_500'

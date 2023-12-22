@@ -4,6 +4,7 @@ from cloudinary.uploader import upload
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_http_methods
 
@@ -77,7 +78,7 @@ def event_success(request):
 
 @require_http_methods(["GET"])
 def event(request, slug):
-    event = Event.objects.filter(slug=slug).first()
+    event = get_object_or_404(Event, slug=slug)
     suggested_events = Event.objects.order_by('?')[:9]
     context = {
         'event': event,
@@ -146,9 +147,9 @@ def update_event(request):
             event.save()
             return redirect('app:event', slug=event.slug)
         except:
-            error_message= 'Title already exists! Try with another name!'
+            error_message = 'Title already exists! Try with another name!'
 
-    event_id=request.POST['event_id']
+    event_id = request.POST['event_id']
     event = Event.objects.filter(id=event_id).first()
 
     date_str = event.start_time.strftime('%Y-%m-%d')
@@ -247,3 +248,13 @@ def user_edit(request):
     }
 
     return render(request, 'user_edit.html', context=context)
+
+
+@require_http_methods(["GET"])
+def handler_404(request, *args, **kwargs):
+    return render(request, 'contact.html')
+
+
+@require_http_methods(["GET"])
+def handler_500(request, *args, **kwargs):
+    return render(request, 'contact.html')
