@@ -4,3 +4,5 @@ gunicorn
 django-allauth==0.58.2
 whitenoise==6.6.0
 cloudinary
+pytest==7.4.3
+pytest-django==4.7.0
