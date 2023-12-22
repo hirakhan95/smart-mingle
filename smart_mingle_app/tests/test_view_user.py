@@ -1,5 +1,6 @@
 import pytest
 from django.urls import reverse
+
 from smart_mingle_app.models import Event
 
 
