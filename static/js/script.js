@@ -15,9 +15,9 @@ tinymce.init({
   menubar: false,
   selector: "#event_description",
   plugins:
-    "autolink charmap codesample emoticons link lists table visualblocks wordcount tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography",
+    "autolink charmap codesample emoticons link lists table visualblocks wordcount",
   toolbar:
-    "blocks fontfamily fontsize | bold italic underline | link image media table mergetags | align lineheight | tinycomments |  numlist bullist | emoticons charmap | removeformat",
+    "blocks fontfamily fontsize | bold italic underline | link image media table | align lineheight  |  numlist bullist | emoticons charmap | removeformat",
   toolbar_mode: "sliding",
   elementpath: false,
   tinycomments_mode: "embedded",
