@@ -29,16 +29,16 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">{{event.title}}</h5>
-                                <p class="card-text">
+                                <div class="card-text">
                                     {% autoescape off %}
                                     {{event.description | truncatechars:200}}
                                     {% endautoescape %}
-                                </p>
-                                <p class="card-text">
+                                </div>
+                                <div class="card-text">
                                     <small class="text-muted"
                                     >Updated At: {{event.updated_at}}</small
                                     >
-                                </p>
+                                </div>
 
                                 <span class="tag badge bg-type mb-1">{{event.category}}</span>
                                 <span class="tag badge bg-new mb-1">{{event.location}}</span>
