@@ -10,7 +10,7 @@
 
 <div class="container mt-3">
     <div class="row align-items-center">
-        <div class="col-md-6">
+        <div class="col-md-12 col-lg-6">
             <h2>Contact Us</h2>
             <form id="contact" method="post" action="{% url 'app:contact_success' %}">
                 {% csrf_token %}
@@ -52,7 +52,7 @@
             </form>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-12 col-lg-6">
             <img
                     src="static/images/contact.png"
                     alt="hero-image"
