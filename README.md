@@ -15,7 +15,7 @@ process for its users.
 
 ## Project Initial Design
 
-I have used [Balsamic](https://balsamiq.com/) for the initial design
+I have used [Balsamiq](https://balsamiq.com/) for the initial design
 
 - ![MockupImage](docs/images/wireframe.png)
 
