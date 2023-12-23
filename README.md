@@ -63,6 +63,47 @@ I have used [Balsamiq](https://balsamiq.com/) for the initial design
 
 - ![MockupImage](docs/images/wireframe.png)
 
+## Smart Mingle Application Flow
+
+The Smart Mingle flowchart outlines the user's journey through the application, detailing the process from the entry point to the completion of various functionalities.
+
+
+### Home Interaction
+- **Home Page**: Upon arrival, users are greeted with the Home Page showcasing upcoming events and social media links for broader engagement.
+- **Event Selection**: Users can browse and select from the listed upcoming events for more details.
+- **Social Media Links**: Direct links are available for users to connect with Smart Mingle on various social media platforms.
+
+### Search Functionality
+- **Search Bar**: A feature that allows users to search for events directly from the Home Page.
+- **Search Results**: The application displays results on a separate Search Page with pagination support.
+- **Event Details**: From the search results, users can click on any event to view its full details.
+
+### Event Detail View
+- **Event Page**: Displays comprehensive details about a specific event.
+- **Recommended Events**: Suggests a list of related events that users might be interested in.
+
+### Signup/Login Process
+- **Signup**: New users can register by filling out a form and completing an email verification process.
+- **Login**: Returning users can log in to access their profile and manage events. There's also a password reset feature which includes email verification for security.
+
+### Profile Management
+- **Profile Overview**: Authenticated users can view and edit their profiles, including personal information and events.
+- **Event Management**: Options are available for users to update or delete their listed events.
+
+### Event Creation
+- **Create Event**: Users can add new events through the Create Event Page, which prompts them to enter event details.
+- **Confirmation**: After submission, a confirmation page indicates the successful creation of the event.
+
+### Event Update
+- **Edit Event**: Users can modify details of their events on the Update Event Page.
+- **Update Confirmation**: Post-update, the application confirms the successful modification of the event details.
+
+### Contact Process
+- **Contact Us**: A dedicated page is provided for users to submit inquiries or feedback.
+- **Submission Confirmation**: After submitting the contact form, users receive confirmation that their details have been successfully recorded.
+
+![Flowchart](docs/images/flowchart.png)
+
 ### Project Goals
 
 The project goals for Smart Mingle are centered around creating a comprehensive and user-friendly event management
