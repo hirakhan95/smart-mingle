@@ -80,6 +80,50 @@ the security of user sessions and form submissions.
 
 ## Features
 
+### Dynamic Event Display
+- **Home Page Event Showcase**: The home page dynamically displays a selection of events, categorizing them into focus and unfocus sections for a diverse and engaging user experience.
+   ![image](images/desktop/1.png)
+
+### User Interaction
+- **Contact Page**: Provides a dedicated page for users to contact the site administrators, enhancing user engagement and support.
+- **Contact Form Submission**: Handles the submission of contact forms, ensuring user queries or feedback are recorded and addressed.
+   ![image](images/desktop/2.png)
+
+### Event Management
+- **Event Creation**: Logged-in users can create events, with a straightforward interface that includes various event categories like Corporate, Exhibition, Sport, and more.
+- **Event Success Handling**: After event creation, the site confirms success to the user, ensuring a smooth and informative event creation process.
+   ![image](images/desktop/19.png)
+
+### Event Details and Customization
+- **Event Detail View**: Detailed views for each event are available, including suggestions for similar events, enriching the user's browsing experience.
+- **Image Upload and Processing**: Integrates with Cloudinary for image uploads, allowing event organizers to add visual appeal to their events.
+- **Date and Time Handling**: Events are handled with precise date and time settings, ensuring accurate scheduling and display.
+   ![image](images/desktop/18.png)
+
+### Search Functionality
+- **Robust Search**: Users can search for events based on title, location, or category, making event discovery easier and more efficient.
+- **Pagination**: Implements pagination in search results, enhancing user experience by organizing content into manageable chunks.
+   ![image](images/desktop/11.png)   
+
+### User Authentication and Profile Management
+- **Login and Signup Pages**: Dedicated pages for user authentication, supporting a secure and personalized user experience.
+- **User Profile Management**: Users can update their profiles, including personal details and event management, fostering a sense of community and ownership.
+   ![image](images/desktop/3.png)
+
+### User Profile Personalization
+- **Profile Editing**: Users can edit their profiles, enhancing the personalization of the user experience.
+- **Profile Picture Handling**: Integrates with Cloudinary for profile picture uploads and transformations, allowing users to customize their profile appearances.
+   ![image](images/desktop/17.png)
+
+### Event Modification
+- **Delete Event**: Allows logged-in users to delete their events, giving them control over the content they manage.
+- **Update Event**: Users can update event details, ensuring that information remains current and accurate. 
+
+### Error Handling
+- **Custom Error Pages**: Custom handlers for 404 and 500 errors provide a user-friendly experience even when encountering issues.
+   ![image](images/desktop/24.png)
+
+
 ## Technologies Used
 
 ### Languages Used
