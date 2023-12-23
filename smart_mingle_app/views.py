@@ -18,6 +18,14 @@ EVENT_TYPES = ['Corporate', 'Exhibition', 'Sport', 'Charity', 'Workshop',
 
 @require_http_methods(["GET"])
 def home(request):
+    """
+    Render the home page with a selection of events.
+
+    :param request: The request object used to generate this response.
+    :type request: HttpRequest
+    :return: Rendered home page with event data.
+    :rtype: HttpResponse
+    """
     events = Event.objects.order_by('?')[:12]
 
     return render(request, 'home.html', context={
@@ -30,11 +38,27 @@ def home(request):
 
 @require_http_methods(["GET"])
 def contact(request):
+    """
+    Render the contact page.
+
+    :param request: The request object used to generate this response.
+    :type request: HttpRequest
+    :return: Rendered contact page.
+    :rtype: HttpResponse
+    """
     return render(request, 'contact.html')
 
 
 @require_http_methods(["POST"])
 def contact_success(request):
+    """
+    Handle POST request for contact form submission and render success page.
+
+    :param request: The request object containing contact form data.
+    :type request: HttpRequest
+    :return: Rendered contact success page upon successful submission.
+    :rtype: HttpResponse
+    """
     if request.method == 'POST':
         contact_message = Contact(name=request.POST['name'],
                                   email=request.POST['email'],
@@ -48,6 +72,14 @@ def contact_success(request):
 @login_required
 @require_http_methods(["GET"])
 def create_event(request):
+    """
+    Render the create event page for logged-in users.
+
+    :param request: The request object used to generate this response.
+    :type request: HttpRequest
+    :return: Rendered create event page.
+    :rtype: HttpResponse
+    """
     return render(request, 'create_event.html', context={
         'categories': EVENT_TYPES
     })
@@ -56,6 +88,14 @@ def create_event(request):
 @login_required
 @require_http_methods(["POST"])
 def event_success(request):
+    """
+    Handle POST request for new event creation and render success page.
+
+    :param request: The request object containing new event data.
+    :type request: HttpRequest
+    :return: Rendered event success page upon successful event creation.
+    :rtype: HttpResponse
+    """
     if request.method == 'POST':
         if 'image' in request.FILES:
             image = request.FILES['image']
@@ -82,6 +122,16 @@ def event_success(request):
 
 @require_http_methods(["GET"])
 def event(request, slug):
+    """
+    Render the detail page for a specific event.
+
+    :param request: The request object used to generate this response.
+    :type request: HttpRequest
+    :param slug: The slug of the event to display.
+    :type slug: str
+    :return: Rendered event detail page.
+    :rtype: HttpResponse
+    """
     event = get_object_or_404(Event, slug=slug)
     suggested_events = Event.objects.order_by('?')[:9]
     context = {
@@ -94,6 +144,14 @@ def event(request, slug):
 
 
 def search(request):
+    """
+    Handle search queries and display search results.
+
+    :param request: The request object containing search parameters.
+    :type request: HttpRequest
+    :return: Rendered page with search results.
+    :rtype: HttpResponse
+    """
     search_field = request.GET.get('a') or ''
     events = Event.objects.filter(Q(title__icontains=search_field)
                                   | Q(location__icontains=search_field)
@@ -112,17 +170,41 @@ def search(request):
 
 @require_http_methods(["GET", "POST"])
 def login(request):
+    """
+    Render login page and handle login requests.
+
+    :param request: The request object used to generate this response.
+    :type request: HttpRequest
+    :return: Rendered login page or redirection after successful login.
+    :rtype: HttpResponse
+    """
     return render(request, 'login.html')
 
 
 @require_http_methods(["GET", "POST"])
 def signup(request):
+    """
+    Render signup page and handle user registration.
+
+    :param request: The request object used to generate this response.
+    :type request: HttpRequest
+    :return: Rendered signup page or redirection after successful registration.
+    :rtype: HttpResponse
+    """
     return render(request, 'signup.html')
 
 
 @login_required
 @require_http_methods(["POST"])
 def delete_event(request):
+    """
+    Handle the deletion of an event by a logged-in user.
+
+    :param request: The request object containing the event ID to be deleted.
+    :type request: HttpRequest
+    :return: Rendered page or redirection after event deletion.
+    :rtype: HttpResponse
+    """
     return render(request, 'delete_event.html', context={
         'event_id': request.POST['event_id']
     })
@@ -131,6 +213,14 @@ def delete_event(request):
 @login_required
 @require_http_methods(["POST"])
 def update_event(request):
+    """
+    Handle updating an event's details by a logged-in user.
+
+    :param request: The request object containing updated event data.
+    :type request: HttpRequest
+    :return: Rendered update event page with success or error message.
+    :rtype: HttpResponse
+    """
     error_message = None
 
     if request.POST.get('call_type') == 'from_update':
@@ -177,6 +267,14 @@ def update_event(request):
 @login_required
 @require_http_methods(["GET", "POST"])
 def user(request):
+    """
+    Render user profile page and handle user profile updates.
+
+    :param request: The request object used to generate this response.
+    :type request: HttpRequest
+    :return: Rendered user profile page or redirection after updates.
+    :rtype: HttpResponse
+    """
     if request.method == 'POST' and 'event_type' in request.POST \
             and request.POST['event_type'] == 'delete_event':
         get_object_or_404(Event, id=request.POST['event_id']).delete()
@@ -241,6 +339,14 @@ def user(request):
 
 @require_http_methods(["GET"])
 def user_edit(request):
+    """
+    Render the user profile edit page.
+
+    :param request: The request object used to generate this response.
+    :type request: HttpRequest
+    :return: Rendered user profile edit page.
+    :rtype: HttpResponse
+    """
     user = request.user
 
     extra_details = ExtraDetails.objects.filter(user=request.user).first()
@@ -265,9 +371,29 @@ def user_edit(request):
 
 @require_http_methods(["GET", "POST"])
 def handler_404(request, *args, **kwargs):
+    """
+    Custom handler for 404 Not Found error.
+
+    :param request: The request object used to generate this response.
+    :type request: HttpRequest
+    :param args: Variable length argument list.
+    :param kwargs: Arbitrary keyword arguments.
+    :return: Rendered 404 error page.
+    :rtype: HttpResponse
+    """
     return render(request, 'error404.html')
 
 
 @require_http_methods(["GET", "POST"])
 def handler_500(request, *args, **kwargs):
+    """
+    Custom handler for 500 Internal Server Error.
+
+    :param request: The request object used to generate this response.
+    :type request: HttpRequest
+    :param args: Variable length argument list.
+    :param kwargs: Arbitrary keyword arguments.
+    :return: Rendered 500 error page.
+    :rtype: HttpResponse
+    """
     return render(request, 'error500.html')

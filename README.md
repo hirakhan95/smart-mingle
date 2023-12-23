@@ -266,7 +266,7 @@ Please see [DESKTOP DESIGN](docs/DESIGN_DESKTOP.md)
 
 ## View on Mobile
 
-Please see [MoBILE DESIGN](docs/DESIGN_MOBILE.md)
+Please see [MOBILE DESIGN](docs/DESIGN_MOBILE.md)
 
 ## References
 
