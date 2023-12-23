@@ -4,7 +4,7 @@ Smart Mingle is an application designed to revolutionize event management. It st
 events by offering effective planning. Aimed at simplifying the complexities of event coordination, Smart Mingle caters
 to various event types, from intimate gatherings to large-scale functions. Its user-friendly interface make it an ideal
 solution for both professional event planners and individuals seeking a hassle-free event management experience.
-![]()
+![MockupImage](docs/images/mockup.png)
 
 [View Smart Mingle Platform now](https://smart-mingle-00648c22d190.herokuapp.com/)
 
@@ -12,6 +12,12 @@ solution for both professional event planners and individuals seeking a hassle-f
 
 Smart Mingle offers a user experience that is intuitive and engaging, making event planning an enjoyable and seamless
 process for its users.
+
+## Project Initial Design
+
+I have used [Balsamic](https://balsamiq.com/) for the initial design
+
+- ![MockupImage](docs/images/wireframe.png)
 
 ### Project Goals
 
@@ -30,7 +36,12 @@ GitHub's Project Boards for efficient management. By drafting epics and correspo
 direction was clearly defined, with progress tracked through various stages on the Project Board and tasks categorized
 by significance.
 
-![Project Board]()
+![Project Board](docs/images/project/1.png)
+
+![Project Board](docs/images/project/2.png)
+
+![Project Board](docs/images/project/3.png)
+
 
 Detailed look can be found in the [project board](https://github.com/users/hirakhan95/projects/1)
 
@@ -42,9 +53,9 @@ for managing various types of events, whether they are corporate gatherings, soc
 It's designed to be accessible and user-friendly, appealing to both experienced organizers and those new to event
 planning.
 
-## Database Scheme
+## Database Schema
 
-![Models Diagram]()
+![Schema](docs/images/model/1.png)
 
 ## Security Features
 
@@ -57,6 +68,10 @@ logout, and account management functions.
 
 Important features like event details, user profiles, and booking management can be secured to ensure that only
 authenticated users can access and modify their event-related information.
+
+### Properly GET and POST applied
+
+All views are only provided with proper GET or POST methods allowed to restrict unrequired calls and secure the system.
 
 ### CSRF Protection
 
@@ -82,7 +97,16 @@ the security of user sessions and form submissions.
 ### Frameworks Used
 
 * [Django](https://www.djangoproject.com/) - Python framework
-* [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/) - CSS framework
+* [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/) - Booststrap 
+
+### Javascript libraries
+
+* [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/) - Bootstrap
+* [TinyMce](https://www.tiny.cloud/) - Tiny MCE
+
+### Authentication
+
+* [AllAuth](https://docs.allauth.org/en/latest/) - AllAuth
 
 ### Technologies Used
 
@@ -95,6 +119,9 @@ the security of user sessions and form submissions.
 * [CI Python Linter](https://pep8ci.herokuapp.com/#) - Used to validate Python.
 
 ## Deployment and Local Development
+
+* PyCharm - For django development on Python
+* VSCode -  For user interface on HTML, CSS, JavaScript
 
 ### Local Development
 
@@ -230,7 +257,16 @@ pytest
 
 
 ## Testing
+
 Please see [TESTING.md](docs/TESTING.md) the detailed testing performed.
+
+## View on Desktopn
+
+Please see [DESKTOP DESIGN](docs/DESIGN_DESKTOP.md)
+
+## View on Mobile
+
+Please see [MoBILE DESIGN](docs/DESIGN_MOBILE.md)
 
 ## References
 
