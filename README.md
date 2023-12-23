@@ -316,10 +316,17 @@ Please see [MOBILE DESIGN](docs/DESIGN_MOBILE.md)
 
 ### Docs
 
-* [Stack Overflow](https://stackoverflow.com/)
 * [Code Institute](https://learn.codeinstitute.net/dashboard)
 * [Bootstrap 5](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 * [Django docs](https://docs.djangoproject.com/en/4.2/)
 * [Django Allauth](https://django-allauth.readthedocs.io/en/latest/)
 * [Django and Static Assets](https://devcenter.heroku.com/articles/django-assets)
 * [Cloudinary](https://cloudinary.com/documentation/diagnosing_error_codes_tutorial)
+* [Pytest](https://docs.pytest.org/en/7.4.x/)
+
+### Credits
+
+* [Ilustrated Pics](https://www.freepik.com/)
+* [Event Images](https://openai.com/dall-e-2)
+* [Stack Overflow](https://stackoverflow.com/)
+* [Github Corner](https://gist.github.com/lyoshenka)
